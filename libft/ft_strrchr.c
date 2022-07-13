@@ -6,25 +6,24 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:20:43 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/07 19:25:37 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/13 03:54:43 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strrchr(const char *s, int c)
-{
-    char *pvt;
-    
-    pvt = 0;
+#include "libft.h"
 
-    if (s != 0)
-    {
-        pvt = s;
-        while (s)
-        {
-            if (s == (char)c)
-                *pvt = *s;
-            *s++;
-        }
-    }
-    return(pvt);
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*p;
+
+	p = NULL;
+	while (*s)
+	{
+		if (*s == (const char)c)
+			p = s;
+		s++;
+	}
+	if (*s == (char)c)
+		p = s;
+	return ((char *)p);
 }

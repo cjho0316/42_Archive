@@ -6,16 +6,16 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:56:27 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/06 13:38:06 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/12 14:46:08 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if (c <= 122 && c >= 97)
-        return(1);
-    else if (c <= 90 && c >= 65)
-        return(2);
-    else
-        return(0);
+	if (c <= 122 && c >= 97)
+		return (1);
+	else if (c <= 90 && c >= 65)
+		return (2);
+	else
+		return (0);
 }

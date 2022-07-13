@@ -6,13 +6,13 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:26:54 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/08 09:40:19 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/12 16:37:14 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	int		i;
 	int		ssize;
