@@ -6,38 +6,42 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 22:42:00 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/12 15:48:37 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/15 19:41:48 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_word(char const *str, char c)
+int	ft_cnt_word(char const *s, char c)
 {
-	size_t	num;
-
-	num = 0;
-	while (*str)
-	{
-		if (*str == c)
-			num++;
-		str++;
-	}
-	num += ft_strlen(str);
-	return (num);
-}
-
-void	ft_strncpy(char	*dest, char const *src, size_t n)
-{
-	size_t	i;
+	int	i;
+	int	cnt;
 
 	i = 0;
-	while (i < n)
+	cnt = 0;
+	while (s[i])
 	{
-		dest[i] = src[i];
-		i++;
+		if (s[i] == c)
+			i++;
+		else
+		{
+			cnt++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
 	}
-	dest[i] = 0;
+	return (cnt);
+}
+
+void	ft_free(char **arr, size_t num)
+{
+	while (num)
+	{
+		free(arr[num]);
+		num--;
+	}
+	free(arr);
+	return ;
 }
 
 void	word_to_arr(char **arr, char const *str, char c)
@@ -46,23 +50,19 @@ void	word_to_arr(char **arr, char const *str, char c)
 	size_t	i;
 
 	num = 0;
+	i = 0;
 	while (*str)
 	{
-		if (*str == c)
-		{
+		while (str[i] != 0 && str[i] == c)
 			i++;
-			str++;
-		}
-		else
-		{
-			i = 0;
-			while (str[i] != c)
-				i++;
-			arr[num] = (char *)malloc(sizeof(char) * (i + 1));
-			ft_strncpy(arr[num], str, i);
-			num ++;
-			str += i;
-		}
+		while (str[i] != 0 && str[i] != c)
+			i++;
+		arr[num] = (char *)malloc(sizeof(char) * (i + 1));
+		if (arr[num] == 0)
+			return (ft_free(arr, num));
+		ft_strlcpy(arr[num], str, i + 1);
+		num ++;
+		str += i;
 	}
 }
 
@@ -71,7 +71,7 @@ char	**ft_split(char const *str, char c)
 	size_t		numbers;
 	char		**arr;
 
-	numbers = count_word(str, c);
+	numbers = ft_cnt_word(str, c);
 	arr = (char **)malloc(sizeof(char *) * (numbers + 1));
 	if (arr == 0)
 		return (0);
