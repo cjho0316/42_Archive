@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 14:41:00 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/12 16:11:28 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/16 19:13:27 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char			*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);

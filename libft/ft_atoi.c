@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:07:15 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/13 20:33:37 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/16 20:40:48 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@ int	put_idx(const char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] <= 32)
+	while (str[i] == ' ' || str[i] == '\t'\
+		|| str[i] == '\n' || str[i] == '\v'\
+		|| str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-')
 	{
@@ -27,16 +29,6 @@ int	put_idx(const char *str)
 	return (i);
 }
 
-int	check_ovf(long result)
-{
-	if (result == 9223372036854775807)
-		return (-1);
-	else if (result == -9223372036854775809)
-		return (0);
-	else
-		return (result);
-}
-
 int	ft_atoi(const char *str)
 {
 	long	i;
@@ -46,21 +38,22 @@ int	ft_atoi(const char *str)
 	i = put_idx(str);
 	n = 1;
 	result = 0;
+	if (!str)
+		return (0);
 	if (i < 0)
 	{
 		n = -1;
 		i *= -1;
 	}
-	while (str[i] != '\0')
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result *= 10;
-			result += str[i] - '0';
-		}
-		else
-			return (check(ovf(result * n)));
+		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	return (check(ovf(result * n)));
+	if ((result * n) >= 9223372036854775807)
+		return (-1);
+	else if ((result * n * -1) - 1 > 9223372036854775807)
+		return (0);
+	else
+		return (result * n);
 }

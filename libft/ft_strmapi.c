@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 22:40:22 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/12 19:48:28 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/14 01:46:05 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	len = ft_strlen(s);
-	str = malloc(len + 1);
-	while (s[i] != '\0')
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == 0)
+		return (0);
+	while (len--)
 	{
-		str[i] = f(i, *s);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	str[i] = 0;
+	str[i] = '\0';
 	return (str);
 }

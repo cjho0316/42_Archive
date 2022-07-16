@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:44:54 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/13 19:06:56 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/14 02:08:04 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*p;
 
-	if (*lst != 0)
+	p = 0;
+	if (lst == 0 || new == 0)
+		return ;
+	if (*lst == 0)
+	{
 		*lst = new;
+		return ;
+	}
 	else
 		p = ft_lstlast(*lst);
 		p->next = new;

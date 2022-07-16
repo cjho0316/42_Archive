@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:18:05 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/13 08:15:49 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/15 03:53:02 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,20 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
+	size_t	num;
+	size_t	lens;
 
+	lens = ft_strlen(s);
 	if (s == 0)
 		return (0);
-	if (start >= ft_strlen(s))
+	if (start > lens)
 		return (ft_strdup(""));
-	p = (char *)malloc(sizeof(char) * (len + 1));
-	if (p == 0 || len < 0)
+	if (lens < len)
+		num = lens;
+	else
+		num = len;
+	p = (char *)malloc(sizeof(char) * (num + 1));
+	if (p == 0)
 		return (0);
 	ft_strlcpy(p, s + start, len + 1);
 	return (p);

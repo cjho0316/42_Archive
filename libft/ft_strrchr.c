@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:20:43 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/07/13 03:54:43 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/07/16 19:56:26 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	const char	*p;
 
-	p = NULL;
+	p = 0;
 	while (*s)
 	{
 		if (*s == (const char)c)
