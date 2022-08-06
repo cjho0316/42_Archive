@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/07 05:25:28 by jang-cho          #+#    #+#              #
+#    Updated: 2022/08/07 05:25:48 by jang-cho         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 GCC = gcc -Wall -Wextra -Werror
 
 NAME 	=	libftprintf.a
@@ -7,6 +19,7 @@ SOURCES = 	ft_printf.c\
 			ft_putnbr.c\
 			ft_putnbr_base.c\
 			ft_unsigned_putnbr.c\
+			ft_print_mem_address.c\
 			ft_strlen.c
 			
 OBJECTS = $(SOURCES:.c=.o)

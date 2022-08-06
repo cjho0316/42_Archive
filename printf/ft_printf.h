@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:28:10 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/08/07 03:05:32 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/08/07 05:24:26 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putstr(char *s, int *len);
 void	ft_putnbr(int n, int *len);
 void	ft_unsigned_putnbr(unsigned int n, int *len);
 int		ft_strlen(char *str);
-void	ft_putnbr_base(int nbr, char *base, int *len);
-//void	ft_print_mem_address(unsigned long long nbr, int *len);
+void	ft_putnbr_base(unsigned int nbr, char *base, int *len);
+void	ft_print_mem_address(unsigned long long nbr, int *len);
 
 #endif

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_print_mem_address.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 17:23:23 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/08/07 04:15:10 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/08/07 05:24:16 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr_base(unsigned int nbr, char *base, int *len)
+void	ft_print_memory(unsigned long long nbr, char *base, int *len)
 {
-	int			bsize;
-	long long	nb;
+	unsigned long long	bsize;
 
 	bsize = 0;
 
-	if (nbr < 0)
-	{
-		write(1, "-", 1);
-		nb = -(long long)nbr;
-	}
-	else
-		nb = (long long)nbr;
 	bsize = ft_strlen(base);
-	if (nb > bsize - 1)
+	if (nbr > bsize - 1)
 	{
-		ft_putnbr_base(nb / bsize, base, len);
-		ft_putnbr_base(nb % bsize, base, len);
+		ft_print_memory(nbr / bsize, base, len);
+		ft_print_memory(nbr % bsize, base, len);
 	}
 	else
 	{
-		write(1, &base[nb % bsize], 1);
+		write(1, &base[nbr % bsize], 1);
 		*len += 1;
 	}
+}
+
+void	ft_print_mem_address(unsigned long long nbr, int *len)
+{
+	ft_putstr("0x", len);
+	ft_print_memory(nbr, "0123456789abcdef", len);
 }
