@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 02:46:51 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/08/09 22:09:46 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/08/10 03:02:22 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*afterline_word(char *save)
 {
@@ -22,16 +22,17 @@ char	*afterline_word(char *save)
 	i = 0;
 	while (save[i] && save[i] != '\n')
 		i++;
+	if (save[i] == '\n')
+		i++;
 	if (save[i] == '\0')
 	{
 		free(save);
 		return (NULL);
 	}
 	len = ft_strlen(save);
-	remains = (char *) malloc(sizeof(char) * (len - i));
+	remains = (char *) malloc(sizeof(char) * (len - i + 1));
 	if (!remains)
 		return (NULL);
-	i++;
 	j = 0;
 	while (save[i])
 		remains[j++] = save[i++];
@@ -50,7 +51,9 @@ char	*firstline_word(char *save)
 		return (NULL);
 	while (save[i] && save[i] != '\n')
 		i++;
-	line = (char *) malloc(sizeof(char) * (i + 1 + 1));
+	if (save[i] == '\n')
+		i++;
+	line = (char *) malloc(sizeof(char) * (i + 1));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -59,7 +62,7 @@ char	*firstline_word(char *save)
 		line[i] = save[i];
 		i++;
 	}
-	if (save[i] == '\n')
+	if (save[i] && save[i] == '\n')
 	{
 		line[i] = save[i];
 		i++;
@@ -95,15 +98,15 @@ char	*read_line(int fd, char *save)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*save;
+	static char	*save[OPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	save = read_line(fd, save);
-	if (!save)
+	save[fd] = read_line(fd, save[fd]);
+	if (!save[fd])
 		return (NULL);
-	line = firstline_word(save);
-	save = afterline_word(save);
+	line = firstline_word(save[fd]);
+	save[fd] = afterline_word(save[fd]);
 	return (line);
 }
 
@@ -117,7 +120,7 @@ char	*get_next_line(int fd)
 // 	while (i < 10)
 // 	{
 // 		str = get_next_line(fd);
-// 		printf("%s", str);
+// 		printf("%s\n", str);
 // 		i++;
 // 	}
 // 	return 0;
