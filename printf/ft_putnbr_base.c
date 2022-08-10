@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 17:23:23 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/08/07 04:15:10 by jang-cho         ###   ########.fr       */
+/*   Created: 2022/08/09 12:54:04 by jang-cho          #+#    #+#             */
+/*   Updated: 2022/08/09 12:54:08 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_putnbr_base(unsigned int nbr, char *base, int *len)
 	long long	nb;
 
 	bsize = 0;
-
 	if (nbr < 0)
 	{
 		write(1, "-", 1);

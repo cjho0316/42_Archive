@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 20:53:18 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/08/07 05:24:21 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/08/09 15:31:02 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,67 +57,8 @@ int	ft_printf(const char *str, ...)
 	int		len;
 
 	va_start(ap, str);
+	len = 0;
 	ft_parsing(ap, (char *)str, &len);
 	va_end(ap);
 	return (len);
 }
-
-
-// #include <stdio.h>
-// #include <limits.h>
-// int	main()
-// {
-// 	printf(" %d\n", INT_MIN);
-// }
-// 	char s1[] = "hello";
-// 	char s2[] = "world";
-// 	void *p = s1;
-// 	int num = -2147483648;
-// 	int	num2 = (int)-15;
-// 	int	num3 = -2147483647;
-// 	int	n = 0;
-// 	int n1 = 0;
-
-// 	//printf("printf %%p: %p\n", p);
-// 	printf("printf %%u: %u\n",0xa);
-// 	ft_printf("printf %%u: %u\n",0xa);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%x: %x\n", 15);
-// 	ft_printf("printf %%x: %x\n", 15);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%i: %i\n", -0xa);
-// 	ft_printf("printf %%i: %i\n", -0xa);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%x: %x\n", -1);
-// 	ft_printf("printf %%x: %x\n", -1);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%x: %x\n", -15);
-// 	ft_printf("printf %%x: %x\n", -15);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%x: %x\n", -25);
-// 	ft_printf("printf %%x: %x\n", -25);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%x: %x\n", 15);
-// 	ft_printf("printf %%x: %x\n", 15);
-// 	ft_printf("--------------------------------\n");
-// 	printf("printf %%u: %u, %u , %u\n", num, num2, num3);
-// 	ft_printf("printf %%u: %u, %u , %u\n", num, num2, num3);
-// 	//printf("test:: %d %w\n", 1, 12);
-// 	ft_printf("--------------------------------\n");
-// 	ft_printf("ft_printf %%X: %X\n", num2);
-// 	ft_printf("ft_printf %%x: %x\n", -1);
-// 	ft_printf("ft_printf %%x: %x\n", -15);
-// 	ft_printf("ft_printf %%x: %x\n", -25);
-// 	ft_printf("ft_printf %%X: %X\n", 15);
-// 	ft_printf("ft_printf %%u: %u, %u , %u\n", num, num2, num3);
-// 	ft_printf("wow chin gu deul! %%  bbak bbak e ah jo ssi ya!\n");
-// 	ft_printf("ft_printf %%d %d\n", 0xf);
-// 	ft_printf("what you input: %c  %s  %s  %c %p\n ", 'b', s1, s2, 'z', p); 
-// 	//ft_printf("test:: %d %w\n", 1, 12);
-// 	n = ft_printf("again you input: %c yey! %s yay %s lololo %c\n", 'b', "'hello'", "'world'", 'z'); 
-// 	n1 = ft_printf("djaskl%cdjasd%s\n", 'K', "hello");
-
-// 	printf("%d\n", n);
-// 	printf("%d\n", n1);
-// 	return (0);
-// }

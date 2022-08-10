@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 17:23:23 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/08/07 05:24:16 by jang-cho         ###   ########.fr       */
+/*   Created: 2022/08/09 12:52:08 by jang-cho          #+#    #+#             */
+/*   Updated: 2022/08/09 13:09:11 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_print_memory(unsigned long long nbr, char *base, int *len)
 	unsigned long long	bsize;
 
 	bsize = 0;
-
 	bsize = ft_strlen(base);
 	if (nbr > bsize - 1)
 	{
