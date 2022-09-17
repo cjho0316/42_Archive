@@ -12,23 +12,29 @@
 
 #include "minitalk.h"
 
+int tmp = 0;
 void get_sig(int sig)
 {
-	static int 	tmp;
 	static char asc;
-	tmp = 0;
+	// tmp = 0;
+	if (sig == SIGUSR1){
+		asc |= 0;
+	}
+	else if (sig == SIGUSR2){
+		asc |= 1;
+	}
+	tmp += 1;
+	
+	if (tmp < 8){
+		asc <<= 1;
+	}
+	
 	if (tmp == 8)
 	{
 		write(1, &asc, 1);
 		tmp = 0;
 		asc = 0;
 	}
-	if (sig == SIGUSR1)
-		asc |= 0;
-	else if (sig == SIGUSR2)
-		asc &= 1;
-	asc <<= 1;
-	tmp += 1;
 }
 
 //msg recieved from client.. handle and print
