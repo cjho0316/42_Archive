@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/05 16:53:57 by jang-cho          #+#    #+#             */
+/*   Updated: 2022/10/02 16:17:18 by jang-cho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
+# include <stdlib.h>
+# include <signal.h>
+# include <unistd.h>
+
+void	atob(int pid, char *str, int len);
+void	send_sig(int pid, char *av);
+void	get_sig(int sig, siginfo_t *info, void *context);
+void	ft_putchar(char c);
+size_t	ft_strlen(const char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putstr_fd(char *str, int num);
+int		put_idx(const char *str);
+int		ft_atoi(const char *str);
+void	ft_putchar(char c);
+void	int2char(int nb);
+void	ft_putnbr_fd(int nb, int num);
+
+#endif
