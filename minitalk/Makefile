@@ -6,7 +6,7 @@
 #    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:38:39 by jang-cho          #+#    #+#              #
-#    Updated: 2022/10/03 14:52:40 by jang-cho         ###   ########.fr        #
+#    Updated: 2022/10/03 19:49:22 by jang-cho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,10 @@ $(NAME2):		$(OBJS2)
 bonus:			$(NAMEB) $(NAMEB2) 
 				
 $(NAMEB):		$(OBJSB)
-				$(CC) $(CFLAG) $(OBJSB) -o $(NAMEB)
+				$(CC) $(CFLAG) $(OBJSB) -o $(NAME)
 				
 $(NAMEB2):		$(OBJSB2)
-				$(CC) $(CFLAG) $(OBJSB2) -o $(NAMEB2)				
+				$(CC) $(CFLAG) $(OBJSB2) -o $(NAME2)				
 clean:
 				$(RM) $(OBJS)
 				$(RM) $(OBJS2)
