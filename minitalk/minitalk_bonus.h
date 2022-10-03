@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:53:57 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/10/03 14:52:11 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:52:06 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
 # include <stdlib.h>
 # include <signal.h>
 # include <unistd.h>
 
 void	atob(int pid, char *str, int len);
 void	send_sig(int pid, char *av);
-void	get_sig(int sig);
+void	get_sig(int sig, siginfo_t *info, void *context);
 void	ft_putchar(char c);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);

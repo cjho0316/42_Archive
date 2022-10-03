@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:10:56 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/10/02 15:56:41 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:49:00 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
+
+static void	received_ack(int sig)
+{
+	if (sig == SIGUSR1)
+		write(1, "msg received", 12);
+}
 
 void	atob(int pid, char *str, int len)
 {
@@ -64,5 +70,8 @@ int	main(int ac, char **av)
 	pid = ft_atoi(av[1]);
 	if (pid <= 100)
 		exit(1);
+	signal(SIGUSR1, received_ack);
 	send_sig(pid, av[2]);
+	while (1)
+		pause();
 }
