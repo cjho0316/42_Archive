@@ -6,13 +6,13 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:50:08 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/10/03 21:27:15 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:26:58 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
