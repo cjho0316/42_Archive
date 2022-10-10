@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:40:31 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/10/10 18:37:28 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:00:15 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void	is_surrounded(t_game *game);
 void	print_surrounded_msg(void);
 void	print_error_msg(int e_cnt, int p_cnt, int col_all);
 void	print_check_error_msg(void);
+void	build_map_error(int fd, char *line, t_game *g);
 
 #endif

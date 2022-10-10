@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 13:55:11 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/10/10 18:37:09 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:00:13 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ void	is_valid_param(t_game *game)
 	game->walk_cnt = 0;
 	while (i < (int)ft_strlen(game->str_line))
 	{
+		if (game->str_line[i] != 'C' && game->str_line[i] != '1' && \
+		game->str_line[i] != '0' && game->str_line[i] != 'P' && \
+		game->str_line[i] != 'E')
+			print_check_error_msg();
 		if (game->str_line[i] == 'C')
 			game->col_all++;
 		else if (game->str_line[i] == 'P')
