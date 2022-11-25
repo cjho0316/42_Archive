@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:12:50 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/11/25 22:53:41 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/11/26 04:48:11 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,16 @@
 
 void	swap(t_deque *p)
 {
-	t_Node	*s;
+	int	tmp1;
+	int	tmp2;
 
 	if (dqisempty(p) || p->dqcnt == 1)
 		return ;
-	s = p->head->prev;
-	p->head->prev = p->head->next;
-	p->head->next = s;
+	tmp1 = dqpopfirst(p);
+	tmp2 = dqpopfirst(p);
+	dqaddfirst(p, tmp1);
+	dqaddfirst(p, tmp2);
 }
-// 이거 마즘??
-// tmp = stack->next;
-// stack->next = stack->next->next;
-// tmp->next = stack;
-// stack = tmp;
 
 void	push(t_deque *from, t_deque *to)
 {

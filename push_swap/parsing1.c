@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:55:27 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/11/26 00:09:02 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/11/26 03:47:11 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,41 @@
 #include "deque.h"
 #include <stdio.h> //debug
 
-int	find_duplicate(t_deque *p, int num)
+int	find_duplicate(t_deque	*dq, int num)
 {
-	t_deque	*s;
+	t_Node	*s;
 
-	s = p;
-	while (p->head != NULL)
+	s = dq->head;
+	while (s != NULL)
 	{
-		if (p->head->data == num)
+		printf("data is : %d\n", s->data);
+		if (s->data == num)
 			return (1);
-		s->tail = s->tail->next;
+		s = s->next;
 	}
 	return (0);
 }
 
-int	integrity_check(char *av, int num)
+int	integrity_check(char *str)
 {
-	int	i;
+	int		i;
 
-	i = num;
-	if (av[i] == '+' || av[i] == '-')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if ((av[i + 1] < '0' || av[i + 1] > '9') && av[i + 1] != ' ')
-			p_error(1);
+		if (str[i] == '+' || str[i] == '-')
+		{
+			if ((str[i + 1] < '0' || str[i + 1] > '9') && str[i + 1] != ' ')
+			{
+				return (0);
+			}
+		}
+		else if ((str[i] > 58 || str[i] < 47) && str[i] != ' ')
+		{
+			return (0);
+		}
+		i++;
 	}
-	else if (av[i] > '9' || av[i] < '0')
-		p_error(1);
-	i++;
 	return (1);
 }
 
@@ -63,21 +71,21 @@ int	arg2list(char *av, t_deque *dq)
 
 	i = 0;
 	arr = ft_split(av, ' ');
-	printf("split array is : %s\n", *arr);
 	if (arr == NULL)
 		return (0);
-	while (arr[i])
+	while (arr[i] != NULL)
 	{
 		k = ft_atoll(arr[i]);
-		if (k > INT_MAX || find_duplicate(dq, k))
-		{
+		if (k > INT_MAX)
 			p_error(1);
-		}
+		if (find_duplicate(dq, k))
+			p_error(1);
 		else
 			dqaddlast(dq, k);
 		free(arr[i]);
 		i++;
 	}
+	printf("%d\n", dq->dqcnt);
 	free(arr);
 	return (1);
 }
@@ -108,13 +116,16 @@ void	push_in_deque(int ac, char **av, t_deque *dq)
 		p_error(1);
 	while (i < ac)
 	{
-		if (integrity_check(av[i], i))
+		if (integrity_check(av[i]))
 		{
 			if (argument_check(av[i]))
 				arg2list(av[i], dq);
 			else
 				dqaddlast(dq, ft_atoll(av[i]));
 		}
+		else
+			p_error(1);
 		i++;
 	}
+	printf("total in deque:%d\n", dq->dqcnt);
 }

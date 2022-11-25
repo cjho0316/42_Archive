@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/11/25 23:57:50 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/11/26 04:51:19 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		rrr(t_deque *p, t_deque *s);
 void		p_error(int i);
 
 //parsing1
-int			integrity_check(char *av, int num);
+int			integrity_check(char *av);
 int			arg2list(char *av, t_deque *dq);
 int			argument_check(char *av);
 void		push_in_deque(int ac, char **av, t_deque *dq);
@@ -64,4 +64,6 @@ int			find_duplicate(t_deque *p, int num);
 //cmd
 void		command(t_deque *p, t_deque *s, char *cmd);
 
+//tmp
+int			find_all(t_deque *dq);
 #endif
