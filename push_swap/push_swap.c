@@ -6,12 +6,12 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:44:38 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/11/26 04:51:12 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/25 00:32:26 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // 받아온 인자에 대해서 정렬을 수행한다. -> algorithmns
-// 인자를 파싱시켜주는 작업해야함.. 인자에 있는 요소들 받아서 배열로 가져다주기 
+// 인자를 파싱시켜주는 작업해야함.. 인자에 있는 요소들 받아서 배열로 가져다주기
 #include <stdio.h> // debug
 #include "deque.h"
 
@@ -39,21 +39,14 @@ int	main(int ac, char **av)
 	dequeinit(deq1);
 	dequeinit(deq2);
 	push_in_deque(ac, av, deq1);
+	// swap(deq1);
 
-	swap(deq1);
-	push(deq1, deq2);
-	push(deq1, deq2);
-	push(deq1, deq2);
-	rr(deq1, deq2);
-	rrr(deq1, deq2);
-	swap(deq1);
-	push(deq2, deq1);
-	push(deq2, deq1);
-	push(deq2, deq1);
 	printf("after d1\n");
 	find_all(deq1);
 	printf("after d2\n");
 	find_all(deq2);
+	printf("list sorting\n");
+	sort_all(deq1);
 
 	free(deq1);
 	free(deq2);

@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/11/26 04:51:19 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/25 03:34:33 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,17 @@ void		ft_putstr_fd(char *s, int fd);
 char		**ft_split(char const *s, char c);
 long long	ft_atoll(const char *str);
 
-//deque
+//deque1
 void		dequeinit(t_deque *p);
 int			dqisempty(t_deque *p);
 void		dqaddfirst(t_deque *p, int data);
 void		dqaddlast(t_deque *p, int data);
 int			dqpopfirst(t_deque *p);
 int			dqpoplast(t_deque *p);
+
+//deque2
+int			dqchkfirst(t_deque *p);
+int			dqchklast(t_deque *p);
 
 //instruction1,2
 void		swap(t_deque *p);
@@ -61,9 +65,20 @@ int			argument_check(char *av);
 void		push_in_deque(int ac, char **av, t_deque *dq);
 int			find_duplicate(t_deque *p, int num);
 
+//algorithmn1, 2
+void		sorting_deque(t_deque *deq1, t_deque *deq2);
+void		under_five(t_deque *a, t_deque *b);
+void		over_five(t_deque *a, t_deque *b);
+void		atob(t_deque *a, t_deque *b, int chunk, int i);
+void		btoa(t_deque *a, t_deque *b);
+
+void		sort_two_three(t_deque *p);
+void		sort_b(t_deque *b, int length);
+
 //cmd
 void		command(t_deque *p, t_deque *s, char *cmd);
 
 //tmp
 int			find_all(t_deque *dq);
+
 #endif
