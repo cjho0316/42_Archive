@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/25 03:34:33 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 04:42:43 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ void		rr(t_deque *p, t_deque *s);
 void		rrr(t_deque *p, t_deque *s);
 void		p_error(int i);
 
-//parsing1
+//parsing1, 2
 int			integrity_check(char *av);
 int			arg2list(char *av, t_deque *dq);
 int			argument_check(char *av);
 void		push_in_deque(int ac, char **av, t_deque *dq);
 int			find_duplicate(t_deque *p, int num);
+
+int			aligned_check(t_deque *q);
 
 //algorithmn1, 2
 void		sorting_deque(t_deque *deq1, t_deque *deq2);
@@ -72,6 +74,8 @@ void		over_five(t_deque *a, t_deque *b);
 void		atob(t_deque *a, t_deque *b, int chunk, int i);
 void		btoa(t_deque *a, t_deque *b);
 
+void		indexing_all(t_deque *a);
+int			get_mid_result(t_deque *a);
 void		sort_two_three(t_deque *p);
 void		sort_b(t_deque *b, int length);
 

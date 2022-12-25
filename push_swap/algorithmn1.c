@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/25 03:30:20 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 04:17:42 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	over_five(t_deque *a, t_deque *b)
 
 void	atob(t_deque *a, t_deque *b, int chunk, int i)
 {
-	int	length;
+	int	total;
 
-	length = a->dqcnt - 1;
+	total = a->dqcnt;
 	while (a->dqcnt != 0)
 	{
 		if (dqchkfirst(a) <= i)
@@ -62,33 +62,33 @@ void	atob(t_deque *a, t_deque *b, int chunk, int i)
 			pb(a, b);
 			i++;
 		}
-		else if (dqchkfirst(a) > i && dqchkfirst(a) <= i + chunk)
+		else if (dqchkfirst(a) > i && dqchkfirst(a) <= (i + chunk))
 		{
 			pb(a, b);
 			rb(b);
 			i++;
 		}
-		else if (dqchkfirst(a) > (i + chunk)) // 최악의 경우일때 상정
+		else if (dqchkfirst(a) > (i + chunk))
 		{
 			if (i < a->dqcnt / 2 && i >= 0)
 				rra(a);
 			else
 				ra(a);
 		}
-		length--;
+		total--;
 	}
 }
 
 void	btoa(t_deque *a, t_deque *b)
 {
-	int	length;
+	int	total;
 
-	length = b->dqcnt - 1;
+	total = b->dqcnt;
 	while (b->dqcnt != 0)
 	{
-		sort_b(b, length);
+		sort_b(b, total);
 		pa(a, b);
-		length--;
+		total--;
 	}
 }
 

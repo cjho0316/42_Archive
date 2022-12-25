@@ -6,78 +6,91 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/25 04:46:17 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 04:41:25 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "deque.h"
 #include <stdio.h>
 
-// void	indexing_arr(t_deque *a)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	*tmp;
+void	drop_and_make(t_deque *a, int total, char *tmp)
+{
+	int	i;
 
-// 	i = 0;
-// 	tmp = (int *)malloc(sizeof(int) * a->length);
-// 	if (tmp == NULL)
-// 		occur_error(1);
-// 	while (i < a->length)
-// 	{
-// 		j = 0;
-// 		tmp[i] = 0;
-// 		while (j < a->length)
-// 		{
-// 			if (a->arr[i] > a->arr[j])
-// 			{
-// 				tmp[i]++;
-// 			}
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	free(a->arr);
-// 	a->arr = NULL;
-// 	a->arr = tmp;
-// }
+	i = -1;
+	while (++i < total)
+		dqpoplast(a);
+	i = -1;
+	while (++i < total)
+		dqaddlast(a, tmp[i]);
+}
 
+void	indexing_all(t_deque *a) // calloc대체하기
+{
+	int		i;
+	int		j;
+	int		*tmp;
+	t_Node	*p;
+	t_Node	*q;
 
-// int	get_mid_result(t_deque *p)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	pb;
+	i = -1;
+	p = a->head;
+	q = a->head;
+	tmp = (int *)malloc(sizeof(int) * a->dqcnt);
+	if (tmp == NULL)
+		p_error(1);
+	while (++i < a->dqcnt)
+	{
+		j = -1;
+		tmp[i] = 0;
+		while (++j < a->dqcnt)
+		{
+			if (p->data > q->next->data)
+				tmp[i]++;
+			q = q->next;
+		}
+		p = p->next;
+	}
+	drop_and_make(a, a->dqcnt, tmp);
+	free(tmp);
+}
 
-// 	i = 0;
-// 	while (i < p->dqcnt)
-// 	{
-// 		j = 0;
-// 		pb = 0;
-// 		while (j < p->dqcnt)
-// 		{
-// 			if (p->arr[j] - p->arr[i] > 0)
-// 			{
-// 				pb++;
-// 			}
-// 			j++;
-// 		}
-// 		if (pb == 2) // b 스택에 2개가 쌓였을 경우
-// 		{
-// 			return (p->arr[i]);
-// 		}
-// 		i++;
-// 	}
-// 	return (1);
-// }
+int	get_mid_result(t_deque *a)
+{
+	int		i;
+	int		j;
+	int		k;
+	t_Node	*p;
+	t_Node	*q;
+
+	i = -1;
+	p = a->head;
+	while (++i < a->dqcnt)
+	{
+		k = 0;
+		j = 0;
+		q = a->head;
+		while (j < a->dqcnt)
+		{
+			if (p->data - q->data > 0)
+				k++;
+			j++;
+			q = q->next;
+		}
+		if (k == 2)
+			return (q->data);
+		p = p->next;
+	}
+	return (1);
+}
 
 void	sort_two_three(t_deque *p)
 {
 	t_Node	*mid;
 
 	mid = p->head->next->data;
-	// if (check_input(p)) 정렬되어있는지 상태체크
-	// 	return ;
+	if (aligned_check(p))
+		return ;
 	if (p->dqcnt == 2)
 		sa(p);
 	else if (dqchkfirst(p) > dqchklast(p) && mid > dqchkfirst(p))
@@ -98,12 +111,12 @@ void	sort_two_three(t_deque *p)
 	}
 }
 
-void	sort_b(t_deque *b, int length)
+void	sort_b(t_deque *b, int total)
 {
 	int	i;
 
 	i = 0;
-	while (i < b->dqcnt && b->head->data != length)
+	while (i < b->dqcnt && b->head->data != total)
 	{
 		i++;
 	}

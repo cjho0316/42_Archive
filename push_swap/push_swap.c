@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:44:38 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/25 00:32:26 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 03:48:26 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,8 @@ int	main(int ac, char **av)
 	dequeinit(deq1);
 	dequeinit(deq2);
 	push_in_deque(ac, av, deq1);
-	// swap(deq1);
-
-	printf("after d1\n");
-	find_all(deq1);
-	printf("after d2\n");
-	find_all(deq2);
-	printf("list sorting\n");
-	sort_all(deq1);
-
+	indexing_all(deq1);
+	sorting_deque(deq1, deq2);
 	free(deq1);
 	free(deq2);
 }
