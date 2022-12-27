@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/27 15:02:03 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:22:37 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,21 +124,33 @@ void	sort_two_three(t_deque *p)
 
 void	sort_b(t_deque *b, int total)
 {
-	int	i;
+	int		i;
+	t_Node	*p;
 
+	p = b->head;
+	// while (p->data != total)
+	// {
+	// 	printf("this is b data: ");
+	// 	printf("%d \n", p->data);
+	// 	p = p->next;
+	// }
+	p = b->head;
 	i = 0;
-	while (i < b->dqcnt && b->head->data != total)
+	while (i < b->dqcnt && p->data != total)
 	{
 		i++;
+		p = p->next;
 	}
 	while (i < b->dqcnt / 2 && i >= 0)
 	{
 		rrb(b);
 		i--;
+		p = p->prev;
 	}
 	while (i >= b->dqcnt / 2 && i < b->dqcnt - 1)
 	{
 		rb(b);
 		i++;
+		p = p->next;
 	}
 }
