@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 04:17:42 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:49:22 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 void	under_five(t_deque *a, t_deque *b)
 {
+	int	k;
+
 	while (a->dqcnt > 3)
 	{
-		while (dqchkfirst(a) >= get_mid_result(a))
+		k = get_mid_result(a);
+		printf("k is :%d\n", k);
+		while (dqchkfirst(a) >= k)
 		{
 			ra(a);
 		}

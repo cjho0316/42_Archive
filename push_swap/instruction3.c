@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instruction2.c                                     :+:      :+:    :+:   */
+/*   instruction3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:13:50 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 17:32:48 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:10:02 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,22 @@
 //--------------------------------------------------------------------
 #include "deque.h"
 
-void	p_error(int i)
+void	pa(t_deque *b, t_deque *a)
 {
-	ft_putstr_fd("Error", i);
-	exit(1);
+	push(b, a);
 }
 
-void	ss(t_deque *p, t_deque *s)
+void	pb(t_deque *a, t_deque *b)
+{
+	push(a, b);
+}
+
+void	sa(t_deque *p)
 {
 	swap(p);
-	swap(s);
 }
 
-void	rr(t_deque *p, t_deque *s)
+void	sb(t_deque *p)
 {
-	rotate(p);
-	rotate(s);
-}
-
-void	rrr(t_deque *p, t_deque *s)
-{
-	reverse_rotate(p);
-	reverse_rotate(s);
+	swap(p);
 }

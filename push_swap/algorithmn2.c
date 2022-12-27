@@ -6,14 +6,14 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 04:41:25 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:56:56 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "deque.h"
 #include <stdio.h>
 
-void	drop_and_make(t_deque *a, int total, char *tmp)
+void	drop_and_make(t_deque *a, int total, int *tmp)
 {
 	int	i;
 
@@ -22,7 +22,9 @@ void	drop_and_make(t_deque *a, int total, char *tmp)
 		dqpoplast(a);
 	i = -1;
 	while (++i < total)
+	{
 		dqaddlast(a, tmp[i]);
+	}
 }
 
 void	indexing_all(t_deque *a) // calloc대체하기
@@ -35,17 +37,19 @@ void	indexing_all(t_deque *a) // calloc대체하기
 
 	i = -1;
 	p = a->head;
-	q = a->head;
 	tmp = (int *)malloc(sizeof(int) * a->dqcnt);
 	if (tmp == NULL)
 		p_error(1);
+	printf("dqcnt1 : %d\n", a->dqcnt);
+
 	while (++i < a->dqcnt)
 	{
 		j = -1;
 		tmp[i] = 0;
+		q = a->head;
 		while (++j < a->dqcnt)
 		{
-			if (p->data > q->next->data)
+			if (p->data > q->data)
 				tmp[i]++;
 			q = q->next;
 		}
@@ -72,13 +76,13 @@ int	get_mid_result(t_deque *a)
 		q = a->head;
 		while (j < a->dqcnt)
 		{
-			if (p->data - q->data > 0)
+			if (q->data - p->data > 0)
 				k++;
 			j++;
 			q = q->next;
 		}
 		if (k == 2)
-			return (q->data);
+			return (p->data);
 		p = p->next;
 	}
 	return (1);
@@ -86,7 +90,7 @@ int	get_mid_result(t_deque *a)
 
 void	sort_two_three(t_deque *p)
 {
-	t_Node	*mid;
+	int	mid;
 
 	mid = p->head->next->data;
 	if (aligned_check(p))

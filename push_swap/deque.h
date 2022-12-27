@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 04:42:43 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:56:57 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@ typedef struct s_deque{
 	t_Node	*tail;
 }	t_deque;
 
-//libft (library1,2)
+//libft (library1, 2)
+void		ft_putstr_fd(char *s, int fd);
 int			ft_strlen(const char *str);
+int			put_idx(const char *str);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strlen(const char *str);
-void		ft_putstr_fd(char *s, int fd);
+
 char		**ft_split(char const *s, char c);
 long long	ft_atoll(const char *str);
 
 //deque1
-void		dequeinit(t_deque *p);
+
 int			dqisempty(t_deque *p);
 void		dqaddfirst(t_deque *p, int data);
 void		dqaddlast(t_deque *p, int data);
@@ -44,10 +46,11 @@ int			dqpopfirst(t_deque *p);
 int			dqpoplast(t_deque *p);
 
 //deque2
+void		dequeinit(t_deque *p);
 int			dqchkfirst(t_deque *p);
 int			dqchklast(t_deque *p);
 
-//instruction1,2
+//instruction1,2,3
 void		swap(t_deque *p);
 void		push(t_deque *from, t_deque *to);
 void		rotate(t_deque *p);
@@ -58,12 +61,22 @@ void		rr(t_deque *p, t_deque *s);
 void		rrr(t_deque *p, t_deque *s);
 void		p_error(int i);
 
+void		pa(t_deque *b, t_deque *a);
+void		pb(t_deque *a, t_deque *b);
+void		sa(t_deque *p);
+void		sb(t_deque *p);
+
+void		ra(t_deque *p);
+void		rb(t_deque *p);
+void		rra(t_deque *p);
+void		rrb(t_deque *p);
+
 //parsing1, 2
+int			find_duplicate(t_deque *p, int num);
 int			integrity_check(char *av);
 int			arg2list(char *av, t_deque *dq);
 int			argument_check(char *av);
 void		push_in_deque(int ac, char **av, t_deque *dq);
-int			find_duplicate(t_deque *p, int num);
 
 int			aligned_check(t_deque *q);
 
@@ -74,6 +87,7 @@ void		over_five(t_deque *a, t_deque *b);
 void		atob(t_deque *a, t_deque *b, int chunk, int i);
 void		btoa(t_deque *a, t_deque *b);
 
+void		drop_and_make(t_deque *a, int total, int *tmp);
 void		indexing_all(t_deque *a);
 int			get_mid_result(t_deque *a);
 void		sort_two_three(t_deque *p);
