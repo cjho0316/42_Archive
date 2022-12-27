@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:13:50 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 17:32:48 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:18:01 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,21 @@ void	p_error(int i)
 
 void	ss(t_deque *p, t_deque *s)
 {
+	ft_putstr_fd("ss\n", 1);
 	swap(p);
 	swap(s);
 }
 
 void	rr(t_deque *p, t_deque *s)
 {
+	ft_putstr_fd("rr\n", 1);
 	rotate(p);
 	rotate(s);
 }
 
 void	rrr(t_deque *p, t_deque *s)
 {
+	ft_putstr_fd("rrr\n", 1);
 	reverse_rotate(p);
 	reverse_rotate(s);
 }

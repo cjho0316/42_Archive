@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:44:38 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 18:56:57 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:14:08 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ int	find_all(t_deque *dq)
 	printf("\n");
 	return (0);
 }
+
+// void	print_result(t_deque *a, t_deque *b)
+// {
+// 	if (b->dqcnt == 0 && aligned_check(a))
+// 	{
+// 		ft_putstr_fd("OK\n", 1);
+// 		exit(1);
+// 	}
+// 	else
+// 	{
+// 		ft_putstr_fd("KO\n", 1);
+// 		exit(0);
+// 	}
+// }
 
 int	main(int ac, char **av)
 {

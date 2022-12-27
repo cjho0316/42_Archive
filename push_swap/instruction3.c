@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:13:50 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 17:10:02 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:18:21 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,25 @@
 #include "deque.h"
 
 void	pa(t_deque *b, t_deque *a)
-{
-	push(b, a);
+{	
+	ft_putstr_fd("pa\n", 1);
+	push(a, b);
 }
 
 void	pb(t_deque *a, t_deque *b)
 {
+	ft_putstr_fd("pb\n", 1);
 	push(a, b);
 }
 
 void	sa(t_deque *p)
 {
+	ft_putstr_fd("sa\n", 1);
 	swap(p);
 }
 
 void	sb(t_deque *p)
 {
+	ft_putstr_fd("sb\n", 1);
 	swap(p);
 }

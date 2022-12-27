@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 18:56:56 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:04:41 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	indexing_all(t_deque *a) // calloc대체하기
 	if (tmp == NULL)
 		p_error(1);
 	printf("dqcnt1 : %d\n", a->dqcnt);
-
 	while (++i < a->dqcnt)
 	{
 		j = -1;
@@ -88,6 +87,11 @@ int	get_mid_result(t_deque *a)
 	return (1);
 }
 
+// 1 3 2 -> rra / sa ra
+// 2 1 3 -> ra / sa
+// 2 3 1 -> sa ra / rra
+// 3 1 2 -> sa / ra
+// 3 2 1 -> 바깥(sa) / sa rra
 void	sort_two_three(t_deque *p)
 {
 	int	mid;
@@ -97,22 +101,25 @@ void	sort_two_three(t_deque *p)
 		return ;
 	if (p->dqcnt == 2)
 		sa(p);
-	else if (dqchkfirst(p) > dqchklast(p) && mid > dqchkfirst(p))
-	{
-		sa(p);
-		ra(p);
-	}
-	else if (dqchklast(p) > mid && dqchkfirst(p) > dqchklast(p))
-		sa(p);
 	else if (dqchklast(p) > dqchkfirst(p) && mid > dqchklast(p))
-		rra(p);
-	else if (dqchkfirst(p) > mid && dqchklast(p) > dqchkfirst(p))
+	{
+		sa(p);
 		ra(p);
-	else
+	}
+	else if (dqchkfirst(p) > mid && dqchklast(p) > dqchkfirst(p))
+		sa(p);
+	else if (dqchkfirst(p) > dqchklast(p) && mid > dqchkfirst(p))
+		rra(p);
+	else if (dqchklast(p) > mid && dqchkfirst(p) > dqchklast(p))
+		ra(p);
+	else if (dqchkfirst(p) > mid && mid > dqchklast(p))
 	{
 		sa(p);
 		rra(p);
 	}
+	printf("first: %d\n", dqchkfirst(p));
+	printf("second: %d\n", p->head->next->data);
+	printf("last: %d\n", p->head->next->next->data);
 }
 
 void	sort_b(t_deque *b, int total)

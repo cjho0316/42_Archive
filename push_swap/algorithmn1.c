@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/26 18:49:22 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:04:20 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 
 void	under_five(t_deque *a, t_deque *b)
 {
-	int	k;
+	t_deque	*p;
 
+	p = a;
 	while (a->dqcnt > 3)
 	{
-		k = get_mid_result(a);
-		printf("k is :%d\n", k);
-		while (dqchkfirst(a) >= k)
+		while (dqchkfirst(a) >= get_mid_result(a))
 		{
 			ra(a);
 		}
@@ -35,8 +34,9 @@ void	under_five(t_deque *a, t_deque *b)
 	{
 		pa(a, b);
 	}
-	if (dqchkfirst(a) > dqchklast(a))
-	{
+	if (dqchkfirst(a) > p->head->next->data)
+	{		
+		printf("first, mid changed\n");
 		sa(a);
 	}
 }
