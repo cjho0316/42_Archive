@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:12:50 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/11/26 04:48:11 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:14:25 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	rotate(t_deque *p)
 
 	if (dqisempty(p))
 		return ;
-	data = dqpoplast(p);
-	dqaddfirst(p, data);
+	data = dqpopfirst(p);
+	dqaddlast(p, data);
 }
 
 void	reverse_rotate(t_deque *p)
@@ -55,6 +55,6 @@ void	reverse_rotate(t_deque *p)
 
 	if (dqisempty(p))
 		return ;
-	data = dqpopfirst(p);
-	dqaddlast(p, data);
+	data = dqpoplast(p);
+	dqaddfirst(p, data);
 }
