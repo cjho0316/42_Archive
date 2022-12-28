@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/27 15:25:56 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/28 12:28:41 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	btoa(t_deque *a, t_deque *b)
 	{
 		sort_b(b, total);
 		pa(a, b);
-		total--;
+		total -= 1;
 	}
 }
 
