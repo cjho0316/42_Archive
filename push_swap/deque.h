@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 10:58:19 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 13:30:12 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		dequeinit(t_deque *p);
 int			dqchkfirst(t_deque *p);
 int			dqchklast(t_deque *p);
 
-//instruction1,2,3
+//instruction1,2,3,4
 void		swap(t_deque *p);
 void		push(t_deque *from, t_deque *to);
 void		rotate(t_deque *p);
@@ -95,10 +95,18 @@ int			get_mid_result(t_deque *a);
 void		sort_two_three(t_deque *p);
 void		sort_b(t_deque *b, int length);
 
-//cmd
+//bonus
 void		command(t_deque *p, t_deque *s, char *cmd);
 
-//tmp
-int			find_all(t_deque *dq);
+/* gnl */
+# define BUFFER_SIZE 1
 
+char		*get_next_line(int fd);
+char		*read_line(int fd, char *save);
+char		*firstline_word(char *save);
+char		*afterline_word(char *save);
+int			is_newline(char *save);
+char		*ft_strjoin(char *s1, char *s2);
+void		ft_strlcpy(char *dst, const char *src, size_t size);
+int			ft_strlen1(char *str);
 #endif
