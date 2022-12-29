@@ -6,12 +6,13 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/28 12:03:05 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 10:58:19 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEQUE_H
 # define INT_MAX 2147483647
+# define INT_MIN -2147483648
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -72,13 +73,14 @@ void		rra(t_deque *p);
 void		rrb(t_deque *p);
 
 //parsing1, 2
-int			find_duplicate(t_deque *p, int num);
+int			find_dup(t_deque *p, int num);
 int			integrity_check(char *av);
 int			arg2list(char *av, t_deque *dq);
 int			argument_check(char *av);
 void		push_in_deque(int ac, char **av, t_deque *dq);
 
 int			aligned_check(t_deque *q);
+void		chk_avvalsorted(t_deque *a);
 
 //algorithmn1, 2
 void		sorting_deque(t_deque *deq1, t_deque *deq2);

@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:13:50 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/27 10:18:01 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 09:27:59 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	p_error(int i)
 {
-	ft_putstr_fd("Error", i);
+	ft_putstr_fd("Error\n", i);
 	exit(1);
 }
 

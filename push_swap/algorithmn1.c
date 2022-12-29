@@ -6,12 +6,11 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 04:23:28 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/28 12:28:41 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 10:58:34 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "deque.h"
-#include <stdio.h>
 
 void	under_five(t_deque *a, t_deque *b)
 {
@@ -36,7 +35,6 @@ void	under_five(t_deque *a, t_deque *b)
 	}
 	if (dqchkfirst(a) > p->head->next->data)
 	{		
-		printf("first, mid changed\n");
 		sa(a);
 	}
 }

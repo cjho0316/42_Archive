@@ -16,6 +16,7 @@ int	main(void)
 	dqaddlast(a, 2);
 	dqaddlast(a, 3);
 	dqaddlast(a, 4);
+
 	v = dqchkfirst(a);
 	printf("addhead : %d\n", v);
 	v = dqchklast(a);

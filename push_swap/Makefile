@@ -5,28 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/05 14:49:18 by hyunjung          #+#    #+#              #
-#    Updated: 2022/12/26 04:43:49 by jang-cho         ###   ########.fr        #
+#    Created: 2022/12/28 16:15:44 by jang-cho          #+#    #+#              #
+#    Updated: 2022/12/28 16:15:46 by jang-cho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAME	=	push_swap
-# LIBFT	=	libft
-# LIBFT_A	=	libft.a
-# BONUS	=	checker
+NAME	=	push_swap
+LIBFT	=	libft
+LIBFT_A	=	libft.a
+BONUS	=	checker
 
-# CC		= cc
-# CFLAG	= -Wall -Wextra -Werror
+CC		= cc
+CFLAG	= -Wall -Wextra -Werror
 
-# RM		= rm -f
+RM		= rm -f
 
-# SRCS	= main.c \
-# 		  validater.c \
-# 		  utils.c \
-# 		  stacks.c \
-# 		  sort.c sort_utils.c\
-# 		  array.c \
-# 		  command.c command_rot.c command_rerot.c command_utils.c\
+SRCS	= push_swap.c \
+			deque1.c \
+			deque2.c \
+			algorithmn1.c \
+			algorithmn2.c \
+			instruction1.c \
+			instruction2.c \
+			instruction3.c \
+			instruction4.c \
+			library1.c \
+			library2.c \
+			parsing1.c \
+			parsing2.c
 
 # SRCS_B = checker.c \
 # 		 sort.c sort_utils.c \
