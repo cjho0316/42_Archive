@@ -6,9 +6,22 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:47:19 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 17:52:08 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:10:04 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+	print_result 검증용
+	// int i = 0;
+	// t_Node *p;
+	// p = a->head;
+	// while(i < a->dqcnt)
+	// {
+	// 	printf("%d", p->data);
+	// 	p = p->next;
+	// 	i++;
+	// }
+*/
 
 #include "deque.h"
 #include <stdio.h>
@@ -71,18 +84,6 @@ char	*get_cmd(int fd)
 
 void	print_result(t_deque *a, t_deque *b)
 {
-	int i = 0;
-	t_Node *p;
-	p = a->head;
-	//printf("%d", b->dqcnt);
-	while(i < a->dqcnt)
-	{
-		printf("%d", p->data);
-		p = p->next;
-		i++;
-	}
-
-	// printf("%d", aligned_check(a));
 	if (b->dqcnt == 0 && aligned_check(a))
 	{
 		ft_putstr_fd("OK\n", 1);	
@@ -109,7 +110,6 @@ int	main(int ac, char **av)
 	dequeinit(a);
 	dequeinit(b);
 	push_in_deque(ac, av, a);
-	chk_avvalsorted(a);
 	check_cmd(a, b);
 	print_result(a, b);
 

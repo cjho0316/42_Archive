@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 17:38:44 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:10:14 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	bonus_rrb(t_deque *p);
 void	bonus_rrr(t_deque *p, t_deque *s);
 
 /* gnl */
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 1
 
 char		*get_next_line(int fd);
 char		*read_line(int fd, char *save);
