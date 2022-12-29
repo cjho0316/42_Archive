@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 01:21:51 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/25 00:31:27 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:43:14 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@ void	ft_putstr_fd(char *s, int fd)
 	if (s == 0 || fd < 0)
 		return ;
 	write(fd, s, ft_strlen(s));
-}
-
-int	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }
 
 int	put_idx(const char *str)

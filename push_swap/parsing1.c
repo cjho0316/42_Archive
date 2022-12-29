@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:55:27 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 12:40:21 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:14:23 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,17 @@ int	arg2list(char *av, t_deque *dq)
 int	argument_check(char *av)
 {
 	char	*str;
+	int		i;
 
 	str = av;
-	while (*str)
+	i = 0;
+	if (str[0] == '\0')
+		p_error(1);
+	while (str[i] != '\0')
 	{
-		if (*str == ' ')
+		if (str[i] == ' ')
 			return (1);
-		str++;
+		i++;
 	}
 	return (0);
 }

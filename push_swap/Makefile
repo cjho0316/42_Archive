@@ -6,7 +6,7 @@
 #    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 16:15:44 by jang-cho          #+#    #+#              #
-#    Updated: 2022/12/28 16:15:46 by jang-cho         ###   ########.fr        #
+#    Updated: 2022/12/29 17:49:15 by jang-cho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,23 @@ SRCS	= push_swap.c \
 			parsing1.c \
 			parsing2.c
 
-# SRCS_B = checker.c \
-# 		 sort.c sort_utils.c \
-# 		 stacks.c \
-# 		 array.c \
-# 		 command.c command_rot.c command_rerot.c command_utils.c \
-# 		 validater.c \
-# 		 utils.c \
-# 		 get_next_line.c get_next_line_utils.c\
-# 		 bonus/bonus_command.c bonus/bonus_command_rerot.c bonus/bonus_command_rot.c
+SRCS_B = bonus_checker.c \
+			bonus_utils.c \
+			deque1.c \
+			deque2.c \
+			instruction1.c \
+			instruction2.c \
+			instruction3.c \
+			instruction4.c \
+			library1.c \
+			library2.c \
+			parsing1.c \
+			parsing2.c \
+			gnl.c \
+			gnl_utils.c \
+			bonus/bonus_instruction1.c \
+			bonus/bonus_instruction2.c \
+			bonus/bonus_instruction3.c \
 		
 OBJS	= $(SRCS:.c=.o)
 OBJS_B	= $(SRCS_B:.c=.o)

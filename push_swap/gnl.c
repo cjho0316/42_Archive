@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:46:18 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 13:23:53 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:23:55 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*read_line(int fd, char *save)
 			return (NULL);
 		}
 		buff[read_idx] = '\0';
-		save = ft_strjoin(save, buff);
+		save = ft_strjoin1(save, buff);
 	}
 	free(buff);
 	return (save);

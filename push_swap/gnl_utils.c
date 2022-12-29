@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:50:08 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 13:23:58 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:23:34 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen1(char *str)
 	return (i);
 }
 
-void	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_strlcpy1(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
@@ -40,7 +40,7 @@ void	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin1(char *s1, char *s2)
 {
 	char		*p;
 	size_t		len1;
@@ -53,13 +53,13 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s1 && !s2)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
+	len1 = ft_strlen1(s1);
+	len2 = ft_strlen1(s2);
 	p = malloc(len1 + len2 + 1);
 	if (!p)
 		return (NULL);
-	ft_strlcpy(p, s1, len1 + 1);
-	ft_strlcpy(p + len1, s2, len2 + 1);
+	ft_strlcpy1(p, s1, len1 + 1);
+	ft_strlcpy1(p + len1, s2, len2 + 1);
 	free(s1);
 	return (p);
 }

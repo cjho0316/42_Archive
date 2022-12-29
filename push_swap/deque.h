@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 13:30:12 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:38:44 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define INT_MIN -2147483648
 # include <unistd.h>
 # include <stdlib.h>
+# include "libft/libft.h"
 
 typedef struct s_Node{
 	int				data;
@@ -30,11 +31,9 @@ typedef struct s_deque{
 
 //libft (library1, 2)
 void		ft_putstr_fd(char *s, int fd);
-int			ft_strlen(const char *str);
 int			put_idx(const char *str);
+void		ft_strlcpy1(char *dst, const char *src, size_t size);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			ft_strlen(const char *str);
-
 char		**ft_split(char const *s, char c);
 long long	ft_atoll(const char *str);
 
@@ -95,18 +94,36 @@ int			get_mid_result(t_deque *a);
 void		sort_two_three(t_deque *p);
 void		sort_b(t_deque *b, int length);
 
-//bonus
-void		command(t_deque *p, t_deque *s, char *cmd);
+//bonus_checker
+void	cmd_bonus(t_deque *a, t_deque *b, char *cmd);
+void	check_cmd(t_deque *a, t_deque *b);
+char	*get_cmd(int fd);
+void	print_result(t_deque *a, t_deque *b);
+
+//bonus_cmd
+void	bonus_ss(t_deque *p, t_deque *s);
+void	bonus_rr(t_deque *p, t_deque *s);
+
+void	bonus_pa(t_deque *b, t_deque *a);
+void	bonus_pb(t_deque *a, t_deque *b);
+void	bonus_sa(t_deque *p);
+void	bonus_sb(t_deque *p);
+
+void	bonus_ra(t_deque *p);
+void	bonus_rb(t_deque *p);
+void	bonus_rra(t_deque *p);
+void	bonus_rrb(t_deque *p);
+void	bonus_rrr(t_deque *p, t_deque *s);
 
 /* gnl */
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 42
 
 char		*get_next_line(int fd);
 char		*read_line(int fd, char *save);
 char		*firstline_word(char *save);
 char		*afterline_word(char *save);
 int			is_newline(char *save);
-char		*ft_strjoin(char *s1, char *s2);
-void		ft_strlcpy(char *dst, const char *src, size_t size);
 int			ft_strlen1(char *str);
+void		ft_strlcpy1(char *dst, const char *src, size_t size);
+char		*ft_strjoin1(char *s1, char *s2);
 #endif

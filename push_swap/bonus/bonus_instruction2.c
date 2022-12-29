@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_utils.c                                      :+:      :+:    :+:   */
+/*   bonus_instruction2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/29 12:48:38 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 16:22:59 by jang-cho         ###   ########.fr       */
+/*   Created: 2022/11/11 19:13:50 by jang-cho          #+#    #+#             */
+/*   Updated: 2022/12/29 17:39:35 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+// 나머지 짜바리 (sa, sb)->swap / (pa, pb)->push (ra, rb) -> rotate /
+// (rra, rrb)-> rrotate
+// ss, rr, rrr 구현하기
+//--------------------------------------------------------------------
+#include "../deque.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	unsigned char	idx;
-
-	idx = 0;
-	while ((s1[idx] != '\0' || s2[idx] != '\0') && idx < (unsigned char)n)
-	{
-		if ((unsigned char)s1[idx] == (unsigned char)s2[idx])
-			idx++;
-		else
-			return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
-	}
-	return (0);
+void	bonus_pa(t_deque *b, t_deque *a)
+{	
+	push(a, b);
 }
 
+void	bonus_pb(t_deque *a, t_deque *b)
+{
+	push(a, b);
+}
+
+void	bonus_sa(t_deque *p)
+{
+	swap(p);
+}
+
+void	bonus_sb(t_deque *p)
+{
+	swap(p);
+}

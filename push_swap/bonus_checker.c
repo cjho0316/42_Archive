@@ -6,36 +6,37 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:47:19 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 13:33:44 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:52:08 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "deque.h"
+#include <stdio.h>
 
 void	cmd_bonus(t_deque *a, t_deque *b, char *cmd)
 {
 	if (ft_strncmp(cmd, "sa", 2) == 0)
-		sa(a);
+		bonus_sa(a);
 	else if (ft_strncmp(cmd, "sb", 2) == 0)
-		sb(b);
+		bonus_sb(b);
 	else if (ft_strncmp(cmd, "ss", 2) == 0)
-		ss(a, b);
+		bonus_ss(a, b);
 	else if (ft_strncmp(cmd, "pa", 2) == 0)
-		pa(a, b);
+		bonus_pa(a, b);
 	else if (ft_strncmp(cmd, "pb", 2) == 0)
-		pb(a, b);
+		bonus_pb(a, b);
 	else if (ft_strncmp(cmd, "ra", 2) == 0)
-		ra(a);
+		bonus_ra(a);
 	else if (ft_strncmp(cmd, "rb", 2) == 0)
-		rb(b);
-	else if (ft_strncmp(cmd, "rr", 2) == 0)
-		rr(a, b);
+		bonus_rb(b);
 	else if (ft_strncmp(cmd, "rra", 3) == 0)
-		rra(a);
+		bonus_rra(a);
 	else if (ft_strncmp(cmd, "rrb", 3) == 0)
-		rrb(b);
+		bonus_rrb(b);
 	else if (ft_strncmp(cmd, "rrr", 3) == 0)
-		rrr(a, b);
+		bonus_rrr(a, b);
+	else if (ft_strncmp(cmd, "rr", 2) == 0)
+		bonus_rr(a, b);
 	else
 		p_error(1);
 }
@@ -58,31 +59,47 @@ void	check_cmd(t_deque *a, t_deque *b)
 
 char	*get_cmd(int fd)
 {
-	char	*command;
+	char	*cmd;
 	char	*result;
 
-	command = get_next_line(fd);
-	result = ft_strtrim(command, "\n");
-	free(command);
-	command = 0;
+	cmd = get_next_line(fd);
+	result = ft_strtrim(cmd, "\n");
+	free(cmd);
+	cmd = 0;
 	return (result);
 }
 
 void	print_result(t_deque *a, t_deque *b)
 {
-	if (b->dqcnt == 0 && check_input(a))
+	int i = 0;
+	t_Node *p;
+	p = a->head;
+	//printf("%d", b->dqcnt);
+	while(i < a->dqcnt)
 	{
-		ft_putstr_fd("OK\n", 1);
+		printf("%d", p->data);
+		p = p->next;
+		i++;
+	}
+
+	// printf("%d", aligned_check(a));
+	if (b->dqcnt == 0 && aligned_check(a))
+	{
+		ft_putstr_fd("OK\n", 1);	
+		free(a);
+		free(b);
 		exit(1);
 	}
 	else
 	{
 		ft_putstr_fd("KO\n", 1);
+		free(a);
+		free(b);
 		exit(0);
 	}
 }
 
-int	main(int ac, char *av)
+int	main(int ac, char **av)
 {
 	t_deque	*a;
 	t_deque	*b;
@@ -91,13 +108,10 @@ int	main(int ac, char *av)
 	b = malloc(sizeof(t_deque));
 	dequeinit(a);
 	dequeinit(b);
-	if (ac < 2)
-		exit (1);
 	push_in_deque(ac, av, a);
 	chk_avvalsorted(a);
 	check_cmd(a, b);
 	print_result(a, b);
-	free(a);
-	free(b);
+
 	return (0);
 }
