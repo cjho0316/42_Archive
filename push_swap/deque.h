@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 18:10:14 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:49:04 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_deque{
 }	t_deque;
 
 //libft (library1, 2)
+void		free_all(t_deque *q1, t_deque *q2);
 void		ft_putstr_fd(char *s, int fd);
 int			put_idx(const char *str);
 void		ft_strlcpy1(char *dst, const char *src, size_t size);
@@ -95,25 +96,25 @@ void		sort_two_three(t_deque *p);
 void		sort_b(t_deque *b, int length);
 
 //bonus_checker
-void	cmd_bonus(t_deque *a, t_deque *b, char *cmd);
-void	check_cmd(t_deque *a, t_deque *b);
-char	*get_cmd(int fd);
-void	print_result(t_deque *a, t_deque *b);
+void		cmd_bonus(t_deque *a, t_deque *b, char *cmd);
+void		check_cmd(t_deque *a, t_deque *b);
+char		*get_cmd(int fd);
+void		print_result(t_deque *a, t_deque *b);
 
 //bonus_cmd
-void	bonus_ss(t_deque *p, t_deque *s);
-void	bonus_rr(t_deque *p, t_deque *s);
+void		bonus_ss(t_deque *p, t_deque *s);
+void		bonus_rr(t_deque *p, t_deque *s);
 
-void	bonus_pa(t_deque *b, t_deque *a);
-void	bonus_pb(t_deque *a, t_deque *b);
-void	bonus_sa(t_deque *p);
-void	bonus_sb(t_deque *p);
+void		bonus_pa(t_deque *b, t_deque *a);
+void		bonus_pb(t_deque *a, t_deque *b);
+void		bonus_sa(t_deque *p);
+void		bonus_sb(t_deque *p);
 
-void	bonus_ra(t_deque *p);
-void	bonus_rb(t_deque *p);
-void	bonus_rra(t_deque *p);
-void	bonus_rrb(t_deque *p);
-void	bonus_rrr(t_deque *p, t_deque *s);
+void		bonus_ra(t_deque *p);
+void		bonus_rb(t_deque *p);
+void		bonus_rra(t_deque *p);
+void		bonus_rrb(t_deque *p);
+void		bonus_rrr(t_deque *p, t_deque *s);
 
 /* gnl */
 # define BUFFER_SIZE 1

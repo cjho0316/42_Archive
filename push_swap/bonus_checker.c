@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:47:19 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 18:10:04 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:51:20 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ void	print_result(t_deque *a, t_deque *b)
 {
 	if (b->dqcnt == 0 && aligned_check(a))
 	{
-		ft_putstr_fd("OK\n", 1);	
+		ft_putstr_fd("OK\n", 1);
 		free(a);
 		free(b);
-		exit(1);
+		exit(0);
 	}
 	else
 	{
@@ -112,6 +112,5 @@ int	main(int ac, char **av)
 	push_in_deque(ac, av, a);
 	check_cmd(a, b);
 	print_result(a, b);
-
 	return (0);
 }

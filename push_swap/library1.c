@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 01:21:51 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/29 15:43:14 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:00:29 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,25 @@ long long	ft_atoll(const char *str)
 		return (0);
 	else
 		return (result * n);
+}
+
+void	free_all(t_deque *q1, t_deque *q2)
+{
+	t_Node	*p;
+	t_Node	*s;
+	int		i;
+	int		cnt;
+
+	(void) *q2;
+	i = 0;
+	p = q1->head;
+	s = q1->head;
+	cnt = q1->dqcnt;
+	while (i < cnt)
+	{
+		p = s->next;
+		free(s);
+		s = p;
+		i++;
+	}
 }
