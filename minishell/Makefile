@@ -7,7 +7,9 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= main.c \
-		env_func.c\
+		ft_interface.c\
+		ft_env.c\
+		
 
 OBJS	= $(SRCS:.c=.o)
 
