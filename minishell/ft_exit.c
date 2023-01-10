@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jangchoi <jangchoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:39:16 by jangchoi          #+#    #+#             */
-/*   Updated: 2023/01/10 14:21:07 by jangchoi         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:16:57 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_exit(int ac, char **cmd, ...)
+// 정상 exit 처리 (numeric일때만)
+void	ft_exit(int ac, char **av)
 {
-    // 정상 exit 처리 (numeric일때만)
-    if (ac <= 2)
-    {
-        if (isdigi)
-
-    }
-    else if (ac > 2)    // 오류처리
-    {
-
-    }
+	if (ac <= 2)
+	{
+		if (av == 1)
+		{
+			printf("exit\n");
+		}
+		if (av)
+		ft_echo()
+	}
+	else if (ac > 2)
+	{
+	}
 }
