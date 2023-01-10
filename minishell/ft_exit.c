@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_func.c                                         :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jangchoi <jangchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 10:00:13 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/01/10 11:24:06 by jangchoi         ###   ########.fr       */
+/*   Created: 2023/01/10 13:39:16 by jangchoi          #+#    #+#             */
+/*   Updated: 2023/01/10 14:21:07 by jangchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-//데이터 어케관리할지 고민
-void	get_env(char **env)
+void ft_exit(int ac, char **cmd, ...)
 {
-	while (*env)
-		printf("%s\n", *env++);
+    // 정상 exit 처리 (numeric일때만)
+    if (ac <= 2)
+    {
+        if (isdigi)
+
+    }
+    else if (ac > 2)    // 오류처리
+    {
+
+    }
 }

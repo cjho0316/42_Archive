@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jangchoi <jangchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:02:36 by siykim            #+#    #+#             */
-/*   Updated: 2023/01/09 14:46:54 by jang-cho         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:41:48 by jangchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,18 @@ typedef struct s_list
 
 
 //library (libft)
-// void	get_interface();
-void	ft_export(char *str, ...);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	**ft_split(char const *s, char c);
+int		ft_strlen(const char *str);
+
+// void	get_interface();
+void	ft_echo(char **cmd);
+void	ft_export(char *str, ...);
+void	ft_cd(char **cmd, char **env);
+void 	ft_exit(char **cmd, ...);
+
+
 int		ft_isdigit(int c);
+void	ft_pwd(char *str);
 void	get_env(char **env);
 #endif
