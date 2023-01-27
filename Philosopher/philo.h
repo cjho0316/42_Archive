@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:05:35 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/01/26 18:35:20 by jang-cho         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:49:22 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
 # include <pthread.h>
 # include <string.h>
 # include <sys/time.h>
-
-typedef struct s_time{
-	time_t 		tv_sec;
-	suseconds_t tv_usec;
-}	t_time;
 
 typedef struct s_philo
 {
@@ -52,6 +47,18 @@ typedef struct s_info
 
 /* philo_util.c */
 int	ft_atoi(const char *str);
+long long ft_gettime(void);
+int ft_intermission(long long wait_time, t_info info);
+int ft_mutex_print(t_info info, int id,char *str);
+
+int is_valid_arg(t_info info, char **av);
+int philo_init(t_philo **phil, t_info info);
+int print_and_forks_mutex_init(t_info info);
+int philo_start(t_philo *phil, t_info info);
+int philo_thread(t_philo *phil, t_info info);
+int philo_eating(t_philo *phil, t_info info);
+int philo_monitoring(t_philo *phil, t_info info);
+
 
 
 #endif

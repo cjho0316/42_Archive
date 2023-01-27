@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:16:46 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/01/26 19:07:57 by jang-cho         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:49:21 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int ac, char **av)
 		err = philo_init(&phil, info);
 		if (err == -2)
 			printf("philo initializing error!\n");
-		err = thread_init(av);
+		err = philo_thread(phil, info);
 		if (err == -3)
 			printf("philo running error!\n");
 	}
@@ -73,7 +73,7 @@ int philo_init(t_philo **phil, t_info info)
 	return (0);
 }
 
-int print_forks_mutex_init(t_info info)
+int print_and_forks_mutex_init(t_info info)
 {
 	int i;
 
@@ -106,30 +106,58 @@ int philo_start(t_philo *phil, t_info info)
 /* philo thread run */
 
 int philo_thread(t_philo *phil, t_info info)
+{	
+	while (info.finish != 1)
+	{		
+		philo_eating(phil, info);
+		if (phil->eat_count == info.philo_must_eat)
+		{
+			info.finished_eat += 1;
+		}
+		ft_mutex_print(info, phil->id, "is sleeping");
+		ft_intermission(info.time_to_sleep, info);
+		ft_mutex_print(info, phil->id, "is thinking");
+	}
+	return (0);
+}
+
+int philo_eating(t_philo *phil, t_info info)
 {
-	pthread_mutex_lock(&(info.forks[phil->id]));
+	pthread_mutex_lock(&(info.forks[phil->left]));
 	ft_mutex_print(info, phil->id, "has taken a left fork");
-	//
-	pthread_mutex_lock(&(info.forks[(phil->id + 1) % info.num_philo]));
-	ft_mutex_print(info, phil->id, "has taken a right fork");
-	ft_mutex_print(info, phil->id, "is eating");
-	phil->eat_count++;
-	phil->last_eat_time = ft_gettime();
-	ft_intermission(phil->last_eat_time);
-	pthread_mutex_unlock(&(info.forks[(phil->id + 1) % info.num_philo]));
-	//
-	pthread_mutex_unlock(&(info.forks[phil->id]));
+	while (info.finish != 1)
+	{
+		pthread_mutex_lock(&(info.forks[phil->right]));
+		ft_mutex_print(info, phil->id, "has taken a right fork");
+		ft_mutex_print(info, phil->id, "is eating");
+		phil->eat_count++;
+		phil->last_eat_time = ft_gettime();
+		ft_intermission(phil->last_eat_time, info);
+		pthread_mutex_unlock(&(info.forks[phil->right]));
+	}
+	pthread_mutex_unlock(&(info.forks[phil->left]));
 	return (0);
 }
 
 int philo_monitoring(t_philo *phil, t_info info)
 {
-	if (phil)
+	int curr;
+
+	if (info.num_philo == info.finished_eat)
+	{
+		info.finish = 1;
+	}
+	curr = ft_gettime();
+	if (info.time_to_die >= curr - info.start_time)
+	{
+		ft_mutex_print(info, phil->id, "died");
+	}
+	return (0);
 }
 
 /* utils */
 
-int ft_gettime(void)
+long long ft_gettime(void)
 {
 	struct timeval 	tv1;
 	long long		time;
@@ -139,20 +167,22 @@ int ft_gettime(void)
 	return (time);
 }
 
-int ft_intermission(long long wait_time)
+int ft_intermission(long long wait_time, t_info info)
 {
 	long long		past;
-	long long		pres;
+	long long		curr;
 
 	past = ft_gettime();
-	while (pres-past > wait_time)
-	if ()
-		break;
-
+	while (!info.finish)
+	{
+		curr = ft_gettime();
+		if (curr-past >= wait_time)
+			break;
+	}
 	return (time);
 }
 
-int ft_mutex_print(t_info info, int id,char *str)
+int ft_mutex_print(t_info info, int id, char *str)
 {
 	long long cur;
 	
@@ -164,6 +194,18 @@ int ft_mutex_print(t_info info, int id,char *str)
 	return (0);
 }
 
-void ft_free_all()
+// free_all
+void free_all_and_mutex_unlock(t_info info, t_info *phil)
 {
+	int i;
+
+	i = -1;
+
+	pthread_mutex_destroy(&(info.print));
+	while (++i < info.num_philo)
+	{
+		free(&(phil->forks[i]));
+		pthread_mutex_destroy(&(info.forks[i]));
+		free(&(phil[i]));
+	}
 }
