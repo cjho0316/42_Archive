@@ -1,18 +1,18 @@
 #include "philo.h"
 
-void ft_intermission(long long wait_time, t_info info)
-{
-	long long		past;
-	long long		curr;
+// void ft_intermission(long long wait_time, t_info info)
+// {
+// 	long long		past;
+// 	long long		curr;
 
-	past = ft_gettime();
-	while (!info.finish)
-	{
-		curr = ft_gettime();
-		if (curr-past >= wait_time)
-			break;
-	}
-}
+// 	past = ft_gettime();
+// 	while (!info.finish)
+// 	{
+// 		curr = ft_gettime();
+// 		if (curr-past >= wait_time)
+// 			break;
+// 	}
+// }
 
 long long ft_gettime(void)
 {
@@ -24,17 +24,17 @@ long long ft_gettime(void)
 	return (time);
 }
 
-int ft_mutex_print(t_info info, int id, char *str)
-{
-	long long cur;
+// int ft_mutex_print(t_info info, int id, char *str)
+// {
+// 	long long cur;
 	
-	cur = ft_gettime();
-	pthread_mutex_lock(&(info.print));
-	if (info.finish != 1)
-		printf("%lld, %d, %s\n",(cur-info.start_time), id + 1, str);
-	pthread_mutex_unlock(&(info.print));
-	return (0);
-}
+// 	cur = ft_gettime();
+// 	pthread_mutex_lock(&(info.print));
+// 	if (info.finish != 1)
+// 		printf("%lld, %d, %s\n",(cur-info.start_time), id + 1, str);
+// 	pthread_mutex_unlock(&(info.print));
+// 	return (0);
+// }
 
 int main(void)
 {
