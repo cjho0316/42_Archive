@@ -36,22 +36,22 @@ long long ft_gettime(void)
 // 	return (0);
 // }
 
-int main(void)
-{
-	t_info	info;	
-	int i = 0;
-	int s;
-	int e;
-	int l;
+// int main(void)
+// {
+// 	t_info	info;	
+// 	int i = 0;
+// 	int s;
+// 	int e;
+// 	int l;
 
 	
-	while (i < 1)
-		i++;
-	l = ft_gettime();
-	// printf("%d start time\n", l);
-	ft_intermission(100000, info);
-	e = ft_gettime();
-	printf("%d leantime\n", e-l);
+// 	while (i < 1)
+// 		i++;
+// 	l = ft_gettime();
+// 	// printf("%d start time\n", l);
+// 	ft_intermission(100000, info);
+// 	e = ft_gettime();
+// 	printf("%d leantime\n", e-l);
 
-	// printf("%d lean time double check\n", e-l);
-}
+// 	// printf("%d lean time double check\n", e-l);
+// }

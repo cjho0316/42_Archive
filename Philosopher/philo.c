@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:16:46 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/02/01 17:54:17 by jang-cho         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:49:08 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int is_valid_arg(t_info *info, char **av)
 	info->time_to_die = ft_atoi(av[2]);
 	info->time_to_eat = ft_atoi(av[3]);
 	info->time_to_sleep = ft_atoi(av[4]);
+	info->start_time = ft_gettime();
 	if (info->num_philo <= 0 || info->time_to_die < 0 || info->time_to_eat < 0 || info->time_to_sleep < 0)
 		return (-1);
 	if (av[5] != NULL && ft_atoi(av[5]) > 0)
@@ -112,9 +113,9 @@ void *philo_thread(void *av)
 	phil = av;
 	info = phil->info;
 	if (phil->id % 2)
-		usleep(2000);
+		usleep(1000);
 	else
-		usleep(700);
+		usleep(500);
 	while (info->finish != 1)
 	{
 		philo_eating(phil, info);
@@ -132,36 +133,48 @@ void *philo_thread(void *av)
 int philo_eating(t_philo *phil, t_info *info)
 {
 	pthread_mutex_lock(&(info->forks[phil->left]));
-	ft_mutex_print(info, phil->id, "has taken a left fork");
-	while (info->finish != 1)
+	ft_mutex_print(info, phil->id, "has taken a fork");
+	if (info->num_philo != 1)
 	{
 		pthread_mutex_lock(&(info->forks[phil->right]));
-		ft_mutex_print(info, phil->id, "has taken a right fork");
+		ft_mutex_print(info, phil->id, "has taken a fork");
 		ft_mutex_print(info, phil->id, "is eating");
-		phil->eat_count++;
 		phil->last_eat_time = ft_gettime();
-		// ft_intermission(phil->last_eat_time, info);
+		phil->eat_count++;
+		ft_intermission((long long)info->time_to_eat, info);
 		pthread_mutex_unlock(&(info->forks[phil->right]));
-		ft_mutex_print(info, phil->id, "put down a right fork");
+		// ft_mutex_print(info, phil->id, "put down a fork");
 	}
 	pthread_mutex_unlock(&(info->forks[phil->left]));
-	ft_mutex_print(info, phil->id, "put down a left fork");
+	// ft_mutex_print(info, phil->id, "put down a fork");
 	return (0);
 }
 
 int philo_monitoring(t_philo *phil, t_info *info)
 {
 	int curr;
+	int i;
 
-	if (info->num_philo == info->finished_eat)
-	{
-		info->finish = 1;
-	}
-	curr = ft_gettime();
-	if (info->time_to_die >= curr - info->start_time)
-	{
-		ft_mutex_print(info, phil->id, "died");
-	}
+    while (!info->finish)
+    {
+        if ((info->philo_must_eat != 0) && (info->num_philo == info->finished_eat))
+        {
+            info->finish = 1;
+			break ;
+        }
+        i = 0;
+        while (i < info->num_philo)
+        {
+            curr = ft_gettime();
+            if ((curr - phil[i].last_eat_time) >= info->time_to_die)
+            {
+                ft_mutex_print(info, i, "died");
+                info->finish = 1;
+                break ;
+            }
+            i++;
+        }
+    }
 	return (0);
 }
 
@@ -173,7 +186,7 @@ long long ft_gettime(void)
 	long long		time;
 	
 	gettimeofday(&tv1, NULL);
-	time = tv1.tv_sec % 10000 * 1000000 + tv1.tv_usec;
+	time = tv1.tv_sec * 1000 + tv1.tv_usec / 1000;
 	return (time);
 }
 
@@ -188,18 +201,21 @@ void ft_intermission(long long wait_time, t_info *info)
 		curr = ft_gettime();
 		if (curr-past >= wait_time)
 			break;
+		usleep(5);
 	}
-	usleep(10);
 }
 
 int ft_mutex_print(t_info *info, int id, char *str)
 {
-	long long cur;
-	
-	cur = ft_gettime();
+	// long long cur;
+	long long time;
+
+	// cur = ft_gettime();
+	// old = info->start_time;
+	time = ft_gettime() - info->start_time;
 	pthread_mutex_lock(&(info->print));
 	if (info->finish != 1)
-		printf("%lld, %d, %s\n",(cur-(info->start_time)), id + 1, str);
+		printf("%lld %d %s\n", (time), id + 1, str);
 	pthread_mutex_unlock(&(info->print));
 	return (0);
 }
