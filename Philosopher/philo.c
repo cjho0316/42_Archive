@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:16:46 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/02/02 18:49:08 by jang-cho         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:30:41 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,13 @@ int philo_start(t_philo *phil, t_info *info)
 	int i;
 
 	i = -1;
+
+	
 	while (++i < info->num_philo)
+	{
+		phil[i].last_eat_time = ft_gettime();
 		pthread_create(&(phil[i].thread), NULL, philo_thread, &(phil[i]));
+	}
 	philo_monitoring(phil, info);
 	i = -1;
 	while (++i < info->num_philo)
@@ -113,8 +118,6 @@ void *philo_thread(void *av)
 	phil = av;
 	info = phil->info;
 	if (phil->id % 2)
-		usleep(1000);
-	else
 		usleep(500);
 	while (info->finish != 1)
 	{
@@ -122,6 +125,7 @@ void *philo_thread(void *av)
 		if (phil->eat_count == info->philo_must_eat)
 		{
 			info->finished_eat += 1;
+			break ;
 		}
 		ft_mutex_print(info, phil->id, "is sleeping");
 		ft_intermission(info->time_to_sleep, info);
@@ -152,9 +156,10 @@ int philo_eating(t_philo *phil, t_info *info)
 
 int philo_monitoring(t_philo *phil, t_info *info)
 {
-	int curr;
+	long long curr;
 	int i;
 
+	
     while (!info->finish)
     {
         if ((info->philo_must_eat != 0) && (info->num_philo == info->finished_eat))
@@ -201,7 +206,7 @@ void ft_intermission(long long wait_time, t_info *info)
 		curr = ft_gettime();
 		if (curr-past >= wait_time)
 			break;
-		usleep(5);
+		usleep(20);
 	}
 }
 
