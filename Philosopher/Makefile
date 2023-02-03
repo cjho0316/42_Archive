@@ -6,7 +6,7 @@
 #    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:11:09 by jang-cho          #+#    #+#              #
-#    Updated: 2023/01/20 12:14:47 by jang-cho         ###   ########.fr        #
+#    Updated: 2023/02/03 18:11:29 by jang-cho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ CFLAG	= -Wall -Wextra -Werror
 
 RM		= rm -f
 
-SRCS	= 
-#philo mandatory
-
+SRCS	= philo.c \
+		philo_run.c \
+		philo_init.c \
+		philo_util.c \
 
 SRCS_B 	= 
 #philo bonus
@@ -43,7 +44,7 @@ $(NAME):	$(OBJECTS)
 			$(CC) -o $(NAME) $(OBJECTS)
 
 %.o	: %.c
-			$(CC)	$(CFLAG) -c $^	-I./ -o $@
+			$(CC)	$(CFLAG) -c $^-I./ -o $@
 
 bonus	:
 		make WITH_BONUS=1 all
