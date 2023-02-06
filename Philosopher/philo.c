@@ -6,35 +6,33 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:16:46 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/02/03 18:08:57 by jang-cho         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:16:53 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long long	ft_gettime(void)
+long long	ft_mutex_last_eat(t_philo *phil, t_info *info, int check, int id)
 {
-	struct timeval	tv1;
-	long long		time;
+	long long	val;
 
-	gettimeofday(&tv1, NULL);
-	time = tv1.tv_sec * 1000 + tv1.tv_usec / 1000;
-	return (time);
-}
-
-void	ft_intermission(long long wait_time, t_info *info)
-{
-	long long		past;
-	long long		curr;
-
-	past = ft_gettime();
-	while (!info->finish)
+	val = 0;
+	pthread_mutex_lock(&(info->last_eat));
+	if (check == 0)
 	{
-		curr = ft_gettime();
-		if (curr - past >= wait_time)
-			break ;
-		usleep(20);
+		phil[id].last_eat_time = ft_gettime();
 	}
+	if (check == 1)
+	{
+		(void)id;
+		phil->last_eat_time = ft_gettime();
+	}
+	else if (check == 2)
+	{
+		val = phil[id].last_eat_time;
+	}
+	pthread_mutex_unlock(&(info->last_eat));
+	return (val);
 }
 
 int	ft_mutex_print(t_info *info, int id, char *str)
@@ -43,24 +41,46 @@ int	ft_mutex_print(t_info *info, int id, char *str)
 
 	time = ft_gettime() - info->start_time;
 	pthread_mutex_lock(&(info->print));
-	if (info->finish != 1)
+	if (ft_mutex_finish(info, 1) != 1)
 		printf("%lld %d %s\n", (time), id + 1, str);
 	pthread_mutex_unlock(&(info->print));
 	return (0);
 }
 
-void	free_all_and_mutex_unlock(t_info *info, t_philo *phil)
+int	ft_mutex_finished_eat(t_info *info, int check)
 {
-	int	i;
+	int	val;
 
-	i = -1;
-	pthread_mutex_destroy(&(info->print));
-	while (++i < info->num_philo)
+	val = 0;
+	pthread_mutex_lock(&(info->finished_eating));
+	if (check == 1)
 	{
-		pthread_mutex_destroy(&(info->forks[i]));
+		val = info->finished_eat;
 	}
-	free(phil);
-	free(info->forks);
+	else if (check == 0)
+	{
+		info->finished_eat++;
+	}
+	pthread_mutex_unlock(&(info->finished_eating));
+	return (val);
+}
+
+int	ft_mutex_finish(t_info *info, int check)
+{
+	int	val;
+
+	val = 0;
+	pthread_mutex_lock(&(info->finish));
+	if (check == 1)
+	{
+		val = info->fin;
+	}
+	else if (check == 0)
+	{
+		info->fin = 1;
+	}
+	pthread_mutex_unlock(&(info->finish));
+	return (val);
 }
 
 int	main(int ac, char **av)

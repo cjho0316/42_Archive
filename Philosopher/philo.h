@@ -38,20 +38,36 @@ typedef struct s_info
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				philo_must_eat;
-	int				finish;
 	int				finished_eat;
 	long long		start_time;
+	int				fin;
+	pthread_mutex_t	last_eat;
+	pthread_mutex_t	finished_eating;
+	pthread_mutex_t	finish;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
 }		t_info;
 
+/* philo util */
 int				ft_atoi(const char *str);
-long long		ft_gettime(void);
+
+/* philo */
+
+long long		ft_mutex_last_eat(t_philo *phil, t_info *info, \
+int check, int id);
 void			ft_intermission(long long wait_time, t_info *info);
 int				ft_mutex_print(t_info *info, int id, char *str);
+int				ft_mutex_finished_eat(t_info *info, int check);
+int				ft_mutex_finish(t_info *info, int check);
+
+/* philo init */
 int				is_valid_arg(t_info *info, char **av);
 int				philo_init(t_philo **phil, t_info *info);
 int				print_and_forks_mutex_init(t_info *info);
+long long		ft_gettime(void);
+void			ft_intermission(long long wait_time, t_info *info);
+
+/* philo run */
 int				philo_start(t_philo *phil, t_info *info);
 void			*philo_thread(void *av);
 int				philo_eating(t_philo *phil, t_info *info);

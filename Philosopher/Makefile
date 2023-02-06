@@ -6,55 +6,37 @@
 #    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:11:09 by jang-cho          #+#    #+#              #
-#    Updated: 2023/02/03 18:11:29 by jang-cho         ###   ########.fr        #
+#    Updated: 2023/02/06 18:10:27 by jang-cho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	philo
-BONUS	=	philo_bonus
+NAME	= philo
 
 CC		= cc
-CFLAG	= -Wall -Wextra -Werror
 
-RM		= rm -f
+CFLAGS	= -Wall -Wextra -Werror 
+#-fsanitize=thread -g
 
-SRCS	= philo.c \
-		philo_run.c \
-		philo_init.c \
-		philo_util.c \
-
-SRCS_B 	= 
-#philo bonus
+SRCS	= 	philo_run.c \
+			philo.c \
+			philo_init.c \
+			philo_util.c \
 
 OBJS	= $(SRCS:.c=.o)
-OBJS_B	= $(SRCS_B:.c=.o)
-LIBC	= ar rc
 
-ifdef WITH_BONUS
-	NAME = $(BONUS)
-	OBJECTS = $(OBJS_B)
-else
-	OBJECTS = $(OBJS)
-endif
+all: $(NAME)
 
-all : $(NAME)
+$(NAME) : $(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-$(NAME):	$(OBJECTS)
-			make all -C $(LIBFT)/
-			$(CC) -o $(NAME) $(OBJECTS)
+clean:
+	rm -f $(OBJS)
 
-%.o	: %.c
-			$(CC)	$(CFLAG) -c $^-I./ -o $@
+fclean: clean
+	rm -f $(NAME)
 
-bonus	:
-		make WITH_BONUS=1 all
-clean	:
-		$(RM) -f $(OBJS) $(OBJS_B)
+re:
+	make fclean
+	make all
 
-fclean	: clean
-		$(RM) -f $(NAME)
-		$(RM) -f $(BONUS)
-
-re : fclean all
-
-.PHONY : all clean fclean re bonus
+.PHONY: all bonus clean fclean re
