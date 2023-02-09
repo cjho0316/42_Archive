@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PHILO.h                                        :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 17:13:33 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/02/03 17:14:04 by jang-cho         ###   ########.fr       */
+/*   Created: 2023/02/10 00:28:28 by jang-cho          #+#    #+#             */
+/*   Updated: 2023/02/10 01:56:56 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
+# include <stdio.h>
 # include <pthread.h>
-# include <string.h>
+# include <unistd.h>
 # include <sys/time.h>
 
 typedef struct s_philo
 {
+	int				id;
+	int				eat_cnt;
+	int				left_fork;
+	int				right_fork;
+	long long		last_eat_time;
 	struct s_info	*info;
 	pthread_t		thread;
-	int				id;
-	int				left;
-	int				right;
-	long long		last_eat_time;
-	int				eat_count;
-}		t_philo;
+}					t_philo;
 
 typedef struct s_info
 {
@@ -37,41 +36,36 @@ typedef struct s_info
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
-	int				philo_must_eat;
+	int				num_must_eat;
 	int				finished_eat;
+	int				finish;
 	long long		start_time;
-	int				fin;
-	pthread_mutex_t	last_eat;
-	pthread_mutex_t	finished_eating;
-	pthread_mutex_t	finish;
+	t_philo			*philos;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	print;
-}		t_info;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	eat_mutex;
+	pthread_mutex_t	finish_mutex;
+}					t_info;
 
-/* philo util */
-int				ft_atoi(const char *str);
+int			print_error(char *message);
+int			ft_atoi(const char *nptr);
+long long	ft_gettime(void);
+void		ft_mutex_print(t_philo *philo, const char *message);
+void		ft_intermission(t_philo *philo, long long ms);
 
-/* philo */
+int			init_info(t_info *info, int ac, char **av);
+int			init_philos(t_info *info);
+int			init_mutexes(t_info *info);
+int			create_philos(t_info *info);
 
-long long		ft_mutex_last_eat(t_philo *phil, t_info *info, \
-int check, int id);
-void			ft_intermission(long long wait_time, t_info *info);
-int				ft_mutex_print(t_info *info, int id, char *str);
-int				ft_mutex_finished_eat(t_info *info, int check);
-int				ft_mutex_finish(t_info *info, int check);
+int			check_dead(t_philo *philo);
+void		philo_eating(t_philo *philo);
+int			ft_mutex_check_finish(t_philo *philo, int yes);
+void		*philo_start(void *arg);
 
-/* philo init */
-int				is_valid_arg(t_info *info, char **av);
-int				philo_init(t_philo **phil, t_info *info);
-int				print_and_forks_mutex_init(t_info *info);
-long long		ft_gettime(void);
-void			ft_intermission(long long wait_time, t_info *info);
-
-/* philo run */
-int				philo_start(t_philo *phil, t_info *info);
-void			*philo_thread(void *av);
-int				philo_eating(t_philo *phil, t_info *info);
-int				philo_monitoring(t_philo *phil, t_info *info);
-void			free_all_and_mutex_unlock(t_info *info, t_philo *phil);
+int			free_info(t_info *info);
+int			free_destroy(t_info *info);
+void		join_free_destroy(t_info *info);
+void		destroy(t_info *info);
 
 #endif

@@ -5,38 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/20 12:11:09 by jang-cho          #+#    #+#              #
-#    Updated: 2023/02/06 18:10:27 by jang-cho         ###   ########.fr        #
+#    Created: 2022/10/16 18:00:37 by jinhokim          #+#    #+#              #
+#    Updated: 2023/02/10 01:57:24 by jang-cho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= philo
+NAME = philo
 
-CC		= cc
+SRCS = main.c \
+		utils.c \
+		init.c \
+		philo.c \
+		free.c \
 
-CFLAGS	= -Wall -Wextra -Werror 
-#-fsanitize=thread -g
+CC = cc
+# FLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
+#FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror 
+RM = rm -rf
 
-SRCS	= 	philo_run.c \
-			philo.c \
-			philo_init.c \
-			philo_util.c \
-
-OBJS	= $(SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
+re: fclean all
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re:
-	make fclean
-	make all
+%.o : %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

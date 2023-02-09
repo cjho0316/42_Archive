@@ -5,102 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 12:16:46 by jang-cho          #+#    #+#             */
-/*   Updated: 2023/02/06 18:16:53 by jang-cho         ###   ########.fr       */
+/*   Created: 2023/02/10 00:28:24 by jang-cho          #+#    #+#             */
+/*   Updated: 2023/02/10 01:54:44 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long long	ft_mutex_last_eat(t_philo *phil, t_info *info, int check, int id)
+int	check_dead(t_philo *philo)
 {
-	long long	val;
-
-	val = 0;
-	pthread_mutex_lock(&(info->last_eat));
-	if (check == 0)
+	pthread_mutex_lock(&philo->info->eat_mutex);
+	if ((ft_gettime() - philo->last_eat_time) >= philo->info->time_to_die)
 	{
-		phil[id].last_eat_time = ft_gettime();
+		ft_mutex_print(philo, "died");
+		ft_mutex_check_finish(philo, 1);
+		pthread_mutex_unlock(&philo->info->eat_mutex);
+		return (1);
 	}
-	if (check == 1)
+	else if (philo->info->num_must_eat > 0 && philo->eat_cnt >= \
+			philo->info->num_must_eat)
 	{
-		(void)id;
-		phil->last_eat_time = ft_gettime();
+		philo->info->finished_eat++;
+		if (philo->info->finished_eat >= philo->info->num_philo)
+		{
+			ft_mutex_check_finish(philo, 1);
+			pthread_mutex_unlock(&philo->info->eat_mutex);
+			return (1);
+		}
 	}
-	else if (check == 2)
-	{
-		val = phil[id].last_eat_time;
-	}
-	pthread_mutex_unlock(&(info->last_eat));
-	return (val);
-}
-
-int	ft_mutex_print(t_info *info, int id, char *str)
-{
-	long long	time;
-
-	time = ft_gettime() - info->start_time;
-	pthread_mutex_lock(&(info->print));
-	if (ft_mutex_finish(info, 1) != 1)
-		printf("%lld %d %s\n", (time), id + 1, str);
-	pthread_mutex_unlock(&(info->print));
+	pthread_mutex_unlock(&philo->info->eat_mutex);
 	return (0);
 }
 
-int	ft_mutex_finished_eat(t_info *info, int check)
+void	philo_eating(t_philo *philo)
 {
-	int	val;
-
-	val = 0;
-	pthread_mutex_lock(&(info->finished_eating));
-	if (check == 1)
-	{
-		val = info->finished_eat;
-	}
-	else if (check == 0)
-	{
-		info->finished_eat++;
-	}
-	pthread_mutex_unlock(&(info->finished_eating));
-	return (val);
+	pthread_mutex_lock(&philo->info->forks[philo->left_fork]);
+	ft_mutex_print(philo, "has taken a fork");
+	pthread_mutex_lock(&philo->info->forks[philo->right_fork]);
+	ft_mutex_print(philo, "has taken a fork");
+	ft_mutex_print(philo, "is eating");
+	ft_intermission(philo, philo->info->time_to_eat);
+	pthread_mutex_lock(&philo->info->eat_mutex);
+	philo->eat_cnt += 1;
+	philo->last_eat_time = ft_gettime();
+	pthread_mutex_unlock(&philo->info->eat_mutex);
+	pthread_mutex_unlock(&philo->info->forks[philo->right_fork]);
+	pthread_mutex_unlock(&philo->info->forks[philo->left_fork]);
 }
 
-int	ft_mutex_finish(t_info *info, int check)
+int	ft_mutex_check_finish(t_philo *philo, int num)
 {
-	int	val;
-
-	val = 0;
-	pthread_mutex_lock(&(info->finish));
-	if (check == 1)
+	pthread_mutex_lock(&philo->info->finish_mutex);
+	if (num == 1)
 	{
-		val = info->fin;
+		philo->info->finish = 1;
+		pthread_mutex_unlock(&philo->info->finish_mutex);
+		return (1);
 	}
-	else if (check == 0)
+	if (philo->info->finish)
 	{
-		info->fin = 1;
+		pthread_mutex_unlock(&philo->info->finish_mutex);
+		return (1);
 	}
-	pthread_mutex_unlock(&(info->finish));
-	return (val);
+	pthread_mutex_unlock(&philo->info->finish_mutex);
+	return (0);
 }
 
-int	main(int ac, char **av)
+void	*philo_start(void *arg)
 {
-	int		err;
-	t_info	info;
-	t_philo	*phil;
+	t_philo	*philo;
 
-	if (ac == 5 || ac == 6)
+	philo = (t_philo *)arg;
+	if (philo->id % 2 == 0)
+		usleep(philo->info->time_to_eat * 500);
+	while (1)
 	{
-		memset(&info, 0, sizeof(t_info));
-		err = is_valid_arg(&info, av);
-		if (err == -1)
-			printf("no valid arguments!\n");
-		philo_init(&phil, &info);
-		print_and_forks_mutex_init(&info);
-		philo_start(phil, &info);
-		free_all_and_mutex_unlock(&info, phil);
+		if (ft_mutex_check_finish(philo, 0))
+			return (0);
+		philo_eating(philo);
+		ft_mutex_print(philo, "is sleeping");
+		ft_intermission(philo, philo->info->time_to_sleep);
+		ft_mutex_print(philo, "is thinking");
 	}
-	else
-		printf("mind your arguments!\n");
 	return (0);
 }
