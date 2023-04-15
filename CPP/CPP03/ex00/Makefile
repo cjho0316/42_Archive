@@ -1,4 +1,4 @@
-NAME = Heritage
+NAME = ClapTrap
 
 CC = c++
 
@@ -7,7 +7,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 
 SRCS = main.cpp\
-		ClapTrap.cpp
+		ClapTrap.cpp\
 
 OBJS = ${SRCS:.cpp=.o}
 
