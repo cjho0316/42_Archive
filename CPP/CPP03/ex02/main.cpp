@@ -1,9 +1,9 @@
-#include"ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ScavTrap a("[THE SCAVTRAP]");
-	ScavTrap b = a;
+	FragTrap a("[THE SCAVTRAP]");
+	FragTrap b = a;
 
 	a.attack("Handsome Jack");
 	a.takeDamage(8);
@@ -12,7 +12,7 @@ int main(void)
 	a.takeDamage(8);
 	a.beRepaired(4);
 	a.attack("Zer0");
-	a.guardGate();
+	a.highFivesGuys();
 
 	return 0;
 }

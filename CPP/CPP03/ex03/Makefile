@@ -1,4 +1,4 @@
-NAME = 
+NAME = DiamondTrap
 
 CC = c++
 
@@ -6,7 +6,11 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp
+SRCS = main.cpp\
+		ClapTrap.cpp\
+		ScavTrap.cpp\
+		FragTrap.cpp\
+		DiamondTrap.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

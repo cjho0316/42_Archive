@@ -16,7 +16,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string _name);
         ClapTrap(ClapTrap const &copy); // copy operator
-		~ClapTrap();
+		virtual ~ClapTrap();
 
         ClapTrap& operator=(ClapTrap const &copy);
 
