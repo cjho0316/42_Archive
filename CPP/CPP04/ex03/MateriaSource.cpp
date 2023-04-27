@@ -6,7 +6,7 @@ MateriaSource::MateriaSource(){
 	std::cout << "MateriaSource Default Constructor Called" << std::endl;
 }
 
-MateriaSource::MateriaSource(const MateriaSource &copy): _name(copy._name){
+MateriaSource::MateriaSource(const MateriaSource &copy){
 	for (int i = 0; i < 4; i++)
 		delete this->_materias[i];
 	for (int i = 0; i < 4; i++)
@@ -25,22 +25,25 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &copy){
 		delete this->_materias[i];
 	for (int i = 0; i < 4; i++)
 		this->_materias[i] = copy._materias[i];
-	this->_name = copy._name;
 	std::cout << "MateriaSource Copy operator Called" << std::endl;	
 	return (*this);
 }
 
-void MateriaSource::learnMateria(AMateria *m){
+void MateriaSource::learnMateria(AMateria *materia){
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_materias[i] == NULL)
 		{
-			this->materia[i] = materia;
-			std::cout << "MateriaSource leaned" << materia->getType() << std::endl;
+			this->_materias[i] = materia;
+			std::cout << "MateriaSource learned " << materia->getType() << std::endl;
 			return ;
 		}
-		std::cout << "MateriaSource is full" << std::endl;
-	}
+		else if (i == 3)
+		{
+			std::cout << "MateriaSource is full" << std::endl;
+			return ;
+		}
+	}	
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type){
@@ -48,10 +51,10 @@ AMateria *MateriaSource::createMateria(std::string const &type){
 	{
 		if (this->_materias[i] != NULL && this->_materias[i]->getType() == type)
 		{
-			std::cout << "MateriaSource created" << type << std::endl;
-			return (this->materia[i]->clone());
+			std::cout << "MateriaSource created " << type << std::endl;
+			return (this->_materias[i]->clone());
 		}
-		std::cout << "Cannot create materias" << type << std::endl;
-		return (NULL);
+		std::cout << "Cannot create materias " << type << std::endl;
 	}
+	return (NULL);
 }

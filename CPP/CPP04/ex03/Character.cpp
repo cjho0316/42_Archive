@@ -46,7 +46,7 @@ void Character::equip(AMateria *m){
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
-			std::cout << "character " << this->_name << " equipped" << m->getType() <<std::endl;
+			std::cout << "character " << this->_name << " equipped " << m->getType() <<std::endl;
 			return ;
 		}
 	}
@@ -59,11 +59,11 @@ void Character::unequip(int idx){
 		std::cout << "put oppropriate idx" << std::endl;
 		return;	
 	}
-	this->_inventory = NULL;
+	this->_inventory[idx] = NULL;
 	std::cout << "character " << this->_name << " unequipped " << idx <<std::endl;
 }
 
-// void Character::use(int idx, ICharacter &target){
-// 	std::cout << "character" << this->_name << " ";
-// 	this->_inventory[idx]->use(target);
-// }
+void Character::use(int idx, ICharacter &target){
+	std::cout << "character " << this->_name << " ";
+	this->_inventory[idx]->use(target);
+}

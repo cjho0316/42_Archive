@@ -1,4 +1,4 @@
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 
 AMateria::AMateria(){
 	std::cout << "AMateria Default Constructor Called" << std::endl;
@@ -25,6 +25,6 @@ std::string const &AMateria::getType() const{
 	return this->_type;
 }
 
-// void AMateria::use(ICharacter &target){
-// 	std::cout << "used" << this->_type << " to " << target.getName() << std::endl;
-// }
+void AMateria::use(ICharacter &target){
+	std::cout << " used " << this->_type << " to " << target.getName() << std::endl;
+}
