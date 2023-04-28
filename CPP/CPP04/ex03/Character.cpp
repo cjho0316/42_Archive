@@ -22,7 +22,7 @@ Character::Character(const Character &copy): _name(copy._name){
 
 Character::~Character(){
 	for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];	
+		delete this->_inventory[i];
 	std::cout << "Character Destructor Called" << std::endl;
 }
 
@@ -56,11 +56,25 @@ void Character::equip(AMateria *m){
 void Character::unequip(int idx){
 	if (idx < 0 || idx > 3)
 	{
-		std::cout << "put oppropriate idx" << std::endl;
+		std::cout << "put appropriate idx" << std::endl;
 		return;	
 	}
-	this->_inventory[idx] = NULL;
-	std::cout << "character " << this->_name << " unequipped " << idx <<std::endl;
+	else if (this->_inventory[idx] == NULL)
+	{
+		std::cout << "you cannot unequip empty slot" << std::endl;
+		return ;
+	}
+	else
+	{
+		std::cout << "character " << this->_name << " unequipped " << this->_inventory[idx]->getType() <<std::endl;
+		this->_inventory[idx] = NULL;
+
+		for (int i = 0; i < 3; i++)
+		{
+			std::cout << "current inventory slots : ";
+			std::cout << this->_inventory[i] << std::endl;
+		}
+	}
 }
 
 void Character::use(int idx, ICharacter &target){
