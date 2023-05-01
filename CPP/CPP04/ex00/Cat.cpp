@@ -1,10 +1,9 @@
 #include "Cat.hpp"
 
 Cat::Cat(): Animal("Cat"){
-	std::cout << "Cat Consturctor created" << std::endl;
+	std::cout << "Cat Default Consturctor created" << std::endl;
 }
 
-// Cat::Cat(const Cat &copy): Animal(copy._type)
 Cat::Cat(Cat const &copy){
 	std::cout << "Cat Copy Consturctor created" << std::endl;
 	this->_type = copy.getType();
@@ -15,13 +14,12 @@ Cat::~Cat(){
 }
 
 Cat& Cat::operator=(Cat const &copy){
-	std::cout << "Cat Copy constructor operator created" << std::endl;
+	std::cout << "Cat Copy operator created" << std::endl;
 	this->_type = copy.getType();
 	return *this;
 }
 
 /* member functions */
-
 void Cat::makeSound() const{
 	std::cout << this->_type << " makes 'meow' sounds " << std::endl;
 }

@@ -21,7 +21,7 @@ Dog& Dog::operator=(Dog const &copy){
 	delete this->_brain;
 	this->_brain = new Brain(*copy._brain);
 	std::cout << "Dog Copy constructor operator created" << std::endl;
-	
+
 	return *this;
 }
 /* member functions */

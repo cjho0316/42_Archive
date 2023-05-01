@@ -23,8 +23,7 @@ Animal& Animal::operator=(Animal const &copy){
 	return *this;
 }
 
-/* getter, settter */
-
+/* getter, setter */
 std::string Animal::getType() const{
 	return this->_type;
 }

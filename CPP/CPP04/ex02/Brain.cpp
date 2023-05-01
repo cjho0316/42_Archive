@@ -2,16 +2,14 @@
 
 Brain::Brain(){
 	std::cout << "Brain Consturctor created" << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
+	for (int i = 0; i < 100; i++){
 		this->ideas[i] = "nothing";
 	}
 }
 
 Brain::Brain(Brain const &copy){
 	std::cout << "Brain Copy Consturctor created" << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
+	for (int i = 0; i < 100; i++){
 		this->ideas[i] = copy.ideas[i];
 	}
 }
@@ -21,9 +19,9 @@ Brain::~Brain(){
 }
 
 Brain& Brain::operator=(Brain const &copy){
+	std::cout << "Brain Copy constructor operator created" << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = copy.ideas[i];
-	std::cout << "Brain Copy constructor operator created" << std::endl;
 	return *this;
 }
 

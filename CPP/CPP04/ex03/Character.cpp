@@ -9,7 +9,7 @@ Character::Character(){
 Character::Character(std::string name): _name(name){
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	std::cout << "Character Constructor Called" << std::endl;
+	std::cout << "Character Constructor " << name << " Called" << std::endl;
 }
 
 Character::Character(const Character &copy): _name(copy._name){
@@ -21,19 +21,29 @@ Character::Character(const Character &copy): _name(copy._name){
 }
 
 Character::~Character(){
-	for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];
 	std::cout << "Character Destructor Called" << std::endl;
 }
 
-Character &Character::operator=(const Character &copy){
-	for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];
-	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = copy._inventory[i];
-	this->_name = copy._name;
-	std::cout << "Character Copy operator Called" << std::endl;	
-	return (*this);
+Character& Character::operator=(const Character& copy)
+{
+   std::cout << "Copy operator '=' called" << std::endl;
+    if (this != &copy)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (this->_inventory[i] != NULL)
+            {
+                delete this->_inventory[i];
+                this->_inventory[i] = NULL;
+            }
+        }
+        for (int i =0; i < 4; i++)
+        {
+            if(copy._inventory[i] != NULL)
+                this->_inventory[i] = copy._inventory[i]->clone();
+        }
+    }
+    return *this;
 }
 
 std::string const &Character::getName() const{
@@ -68,16 +78,24 @@ void Character::unequip(int idx){
 	{
 		std::cout << "character " << this->_name << " unequipped " << this->_inventory[idx]->getType() <<std::endl;
 		this->_inventory[idx] = NULL;
-
-		for (int i = 0; i < 3; i++)
-		{
-			std::cout << "current inventory slots : ";
-			std::cout << this->_inventory[i] << std::endl;
-		}
 	}
 }
 
 void Character::use(int idx, ICharacter &target){
+	if (idx < 0 || idx > 3 || _inventory[idx] == NULL)
+	{
+		std::cout << "you cannot use invalid inventory" << std::endl;
+		return ;
+	}
 	std::cout << "character " << this->_name << " ";
 	this->_inventory[idx]->use(target);
+	std::cout << "Your current inventory" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] == NULL)
+			continue;
+		std::cout << i << " " << this->_inventory[i]->getType() << std::endl;
+	} 
+	delete _inventory[idx];
+	this->_inventory[idx] = NULL;
 }

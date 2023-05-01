@@ -21,7 +21,6 @@ WrongCat& WrongCat::operator=(WrongCat const &copy){
 }
 
 /* member functions */
-
 void WrongCat::makeSound() const{
-	std::cout << this->_type << " makes ' ??weom?? ' sounds " << std::endl;
+	std::cout << this->_type << " makes ' ¿porque? ' sounds " << std::endl;
 }

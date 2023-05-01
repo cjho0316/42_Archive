@@ -18,7 +18,7 @@ class Dog: public Animal
 		Dog& operator=(Dog const &copy);
 
 		/* member functions */
-		virtual void makeSound() const;
+		void makeSound() const;
 
 		/* getter, setter */
 		std::string getDogIdea(int i) const;

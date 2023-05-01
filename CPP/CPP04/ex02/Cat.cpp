@@ -5,11 +5,9 @@ Cat::Cat(): Animal("Cat"){
 	std::cout << "Cat Consturctor created" << std::endl;
 }
 
-// Cat::Cat(const Cat &copy): Animal(copy._type)
 Cat::Cat(Cat const &copy): Animal(copy._type){
 	this->_brain = new Brain(*copy._brain);
 	std::cout << "Cat Copy Consturctor created" << std::endl;
-
 }
 
 Cat::~Cat(){

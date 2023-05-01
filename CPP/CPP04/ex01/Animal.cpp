@@ -5,11 +5,11 @@ Animal::Animal(): _type("undefined"){
 }
 
 Animal::Animal(std::string type): _type(type){
-	std::cout << this->_type << " Animal Consturctor created" << std::endl;
+	std::cout << this->_type << " Animal Consturctor w/ name created" << std::endl;
 }
 
 Animal::Animal(Animal const &copy){
-	std::cout << "Animal Consturctor created" << std::endl;
+	std::cout << "Animal Copy Consturctor created" << std::endl;
 	this->_type = copy.getType();
 }
 
@@ -18,19 +18,17 @@ Animal::~Animal(){
 }
 
 Animal& Animal::operator=(Animal const &copy){
-	std::cout << "Animal Copy constructor operator created" << std::endl;
+	std::cout << "Animal Copy operator created" << std::endl;
 	this->_type = copy.getType();
 	return *this;
 }
 
 /* member functions */
-
 void Animal::makeSound() const{
 	std::cout << this->_type << " animal sounds like" << std::endl;
 }
 
 /* getter, settter */
-
 std::string Animal::getType() const{
 	return this->_type;
 }

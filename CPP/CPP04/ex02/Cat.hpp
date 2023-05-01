@@ -18,7 +18,7 @@ class Cat: public Animal
 		Cat& operator=(Cat const &copy);
 
 		/* member functions */
-		virtual void makeSound() const;
+		void makeSound() const;
 
 		/* getter, setter */
 		std::string getCatIdea(int i) const;

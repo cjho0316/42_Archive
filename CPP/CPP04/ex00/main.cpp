@@ -19,7 +19,8 @@ int main(void)
 	delete i;
 	delete j;
 
-	std::cout << "/* ------------------------------------------------------- */" << std::endl;
+	
+	std::cout << '\n' << "/* ------------------------------------------------------- */" << '\n' << std::endl;
 
 	const WrongAnimal* wrong = new WrongCat();
 	std::cout << wrong->getType() << " " << std::endl;

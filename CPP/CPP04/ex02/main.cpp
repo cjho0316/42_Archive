@@ -13,10 +13,10 @@ int main()
 			array[i] = new Cat();
 	}
 
-	for(int i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 		array[i]->makeSound();
 
-	for(int i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 		delete array[i];
 
 	const Animal* j = new Dog();

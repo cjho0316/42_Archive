@@ -5,7 +5,6 @@ Dog::Dog(): Animal("Dog"){
 	std::cout << "Dog Consturctor created" << std::endl;
 }
 
-// Dog::Dog(const Dog &copy): Animal(copy._type)
 Dog::Dog(Dog const &copy): Animal(copy._type){
 	this->_brain = new Brain(*copy._brain);
 	std::cout << "Dog Copy Consturctor created" << std::endl;
@@ -24,14 +23,13 @@ Dog& Dog::operator=(Dog const &copy){
 	
 	return *this;
 }
-/* member functions */
 
+/* member functions */
 void Dog::makeSound() const{
 	std::cout << this->_type << " makes 'bark' sounds " << std::endl;
 }
 
 /* getter, setter */
-
 void Dog::setDogIdea(int i, std::string str) const{
 	this->_brain->setIdea(i, str);
 }

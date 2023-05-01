@@ -5,11 +5,9 @@ Cat::Cat(): Animal("Cat"){
 	std::cout << "Cat Consturctor created" << std::endl;
 }
 
-// Cat::Cat(const Cat &copy): Animal(copy._type)
 Cat::Cat(Cat const &copy): Animal(copy._type){
 	this->_brain = new Brain(*copy._brain);
 	std::cout << "Cat Copy Consturctor created" << std::endl;
-
 }
 
 Cat::~Cat(){
@@ -27,13 +25,11 @@ Cat& Cat::operator=(Cat const &copy){
 }
 
 /* member functions */
-
 void Cat::makeSound() const{
 	std::cout << this->_type << " makes 'meow' sounds " << std::endl;
 }
 
 /* getter, setter */
-
 void Cat::setCatIdea(int i, std::string str) const{
 	this->_brain->setIdea(i, str);
 }
