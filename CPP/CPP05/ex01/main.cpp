@@ -84,11 +84,8 @@ int	main(void)
 			std::cout << bureau2 << std::endl;
 			
 			form1.beSigned(bureau1); // 'jang-cho' can sign because his grade is higher than form
-
 			bureau2.signForm(form1);
-			
 			bureau2.incrementGrade();
-
 			bureau2.signForm(form1);
 
 			std::cout << form1 << std::endl;
@@ -203,5 +200,4 @@ int	main(void)
 // 	}
 // 	return 0;
 // }
-
 
