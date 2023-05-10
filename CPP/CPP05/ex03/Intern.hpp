@@ -4,12 +4,16 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
+#include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+class AForm;
 class Intern {
 	private:
+        static const std::string _classArrayName[3];
+        static const AForm* (Intern::*func[3])(const std::string&);
 
 	public:
 		/* OCF */
@@ -19,11 +23,17 @@ class Intern {
 		~Intern();
 		Intern &operator=(const Intern &copy);
 
-		/* getter, setter */
-
 		/* member fuctions */
-        void makeForm(std::string &form, std::string target);
+        AForm* makeForm(std::string &form, std::string &target);
+        AForm* newPresidentialPardonForm(const std::string &target);
+        AForm* newRobotomyRequestForm(const std::string &target);
+        AForm* newShrubberyCreationForm(const std::string &target);
 
+		/* exception class */
+		class ClassDoesNotExist : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 };
 
 std::ostream &operator<<(std::ostream &str, Intern const &b);
