@@ -1,15 +1,17 @@
 #include "Intern.hpp"
 
+/* static variable initalization */
+
 const std::string Intern::_classArrayName[3] = {
     "presidential pardon",
     "robotomy request",
-    "shrubbery createion"
+    "shrubbery creation"
 };
 
-AForm*	(Intern::*func[3])(const std::string &) const = {
-	&Intern::newShrubberyCreationForm,
-	&Intern::newRobotomyRequestForm,
-	&Intern::newPresidentialPardonForm
+AForm* (Intern::*Intern::func[3])(const std::string&) const = {
+    &Intern::newPresidentialPardonForm,
+    &Intern::newRobotomyRequestForm,
+    &Intern::newShrubberyCreationForm
 };
 
 /* OCF */
@@ -18,7 +20,7 @@ Intern::Intern() {
 }
 
 Intern::Intern(const Intern &copy) {
-    (void)copy;
+    (void) copy;
 	std::cout << "Intern copied" << std::endl;
 }
 
@@ -27,35 +29,38 @@ Intern::~Intern() {
 }
 
 Intern &Intern::operator=(const Intern &copy) {
+    (void) copy;
 	return (*this);
 }
 
 /* member fuctions */
-AForm* Intern::makeForm(std::string &form, std::string &target) {
+AForm* Intern::makeForm(const std::string &form, const std::string &target) const {
     AForm* ptr = NULL;
     for (int i = 0; i < 3; i++)
     {
-        if (form == _classArrayName[i])
-            ptr = (*func[i])(target);
+        if (form == this->_classArrayName[i])
+        {
+            ptr = (this->*func[i])(target);
+        }
     }
     if (ptr == NULL)
         throw Intern::ClassDoesNotExistException();
     return ptr;
 }
 
-AForm* Intern::newPresidentialPardonForm(const std::string &target) {
+AForm* Intern::newPresidentialPardonForm(const std::string &target) const {
     return (new PresidentialPardonForm(target));
 }
 
-AForm* Intern::newRobotomyRequestForm(const std::string &target) {
+AForm* Intern::newRobotomyRequestForm(const std::string &target) const {
     return (new RobotomyRequestForm(target));
 }
 
-AForm* Intern::newShrubberyCreationForm(const std::string &target) {
+AForm* Intern::newShrubberyCreationForm(const std::string &target) const {
     return (new ShrubberyCreationForm(target));
 }
 
 /* exception class */
-const char* Intern::ClassDoesNotExist::what() const throw() {
+const char* Intern::ClassDoesNotExistException::what() const throw() {
     return ("error: class does not exist!!!");
 };

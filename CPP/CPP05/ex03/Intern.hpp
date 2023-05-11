@@ -13,7 +13,7 @@ class AForm;
 class Intern {
 	private:
         static const std::string _classArrayName[3];
-        static const AForm* (Intern::*func[3])(const std::string&);
+        static AForm* (Intern::*func[3])(const std::string&) const;
 
 	public:
 		/* OCF */
@@ -24,10 +24,10 @@ class Intern {
 		Intern &operator=(const Intern &copy);
 
 		/* member fuctions */
-        AForm* makeForm(std::string &form, std::string &target);
-        AForm* newPresidentialPardonForm(const std::string &target);
-        AForm* newRobotomyRequestForm(const std::string &target);
-        AForm* newShrubberyCreationForm(const std::string &target);
+        AForm* makeForm(const std::string &form, const std::string &target) const;
+        AForm* newPresidentialPardonForm(const std::string &target) const;
+        AForm* newRobotomyRequestForm(const std::string &target) const;
+        AForm* newShrubberyCreationForm(const std::string &target) const;
 
 		/* exception class */
 		class ClassDoesNotExistException : public std::exception {
