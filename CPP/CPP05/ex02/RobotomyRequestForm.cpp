@@ -30,7 +30,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 /* member functions */
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-	std::cout << "DRRRRRRRIIIIIILLLLLLLLLIIINNNGGGGGG NOOOOIIZZZZZEEEE " << std::endl;
+	std::cout << "* DRRRRRRRIIIIIILLLLLLLLLIIINNNGGGGGG NOOOOIIZZZZZEEEE *" << std::endl;
 	if (this->getGradeExecute() < executor.getGrade())
 		throw AForm::ExecuteGradeTooLowException();
 	else if (getSigned() == false)

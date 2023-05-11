@@ -6,11 +6,11 @@ Bureaucrat::Bureaucrat(): _name("default"), _grade(150) {
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name), _grade(grade) {
-	std::cout << "Bureaucrat w/ name and grade created" << std::endl;
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	std::cout << "Bureaucrat w/ name and grade created" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy): _name(copy._name), _grade(copy._grade) {

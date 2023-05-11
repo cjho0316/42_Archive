@@ -30,7 +30,7 @@ int	main(void)
 			Form form1("test1", 1, 150);
 			std::cout << form1 << std::endl;
 
-			Form form2("test2", 0, 151);
+			Form form2("test2", 0, -1);
 			std::cout << form2 << std::endl;
 		}
 		catch (const std::exception& e)
@@ -50,7 +50,7 @@ int	main(void)
 			std::cout << form1 << std::endl;
 			std::cout << bureau1 << std::endl;
 			std::cout << bureau2 << std::endl;
-			
+
 			form1.beSigned(bureau2); //'sechung' can't beSigned because of his grade lower than form
 
 			//exception error will catch, can't go any further
