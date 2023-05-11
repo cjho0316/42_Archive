@@ -30,7 +30,7 @@ class Intern {
         AForm* newShrubberyCreationForm(const std::string &target);
 
 		/* exception class */
-		class ClassDoesNotExist : public std::exception {
+		class ClassDoesNotExistException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
