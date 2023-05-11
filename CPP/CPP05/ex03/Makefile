@@ -1,4 +1,4 @@
-NAME = Intern
+NAME = Intern 
 
 CC = c++
 
