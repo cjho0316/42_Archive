@@ -1,4 +1,4 @@
-NAME = convert
+NAME = identify
 
 CC = c++
 
@@ -7,8 +7,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 
 SRCS = main.cpp\
-		ScalarConverter.cpp\
-		
+		Func.cpp\
 
 OBJS = ${SRCS:.cpp=.o}
 

@@ -1,16 +1,18 @@
 # ifndef SCALARCONVERTER_H
 #define SCALARCONVERTER_H
 
-#include <stdexcept>
 #include <iostream>
 #include <string>
+#include <limits>
+#include <cmath>
 #include <cstdlib>
 #include <cctype>
+#include <sstream>
 
 class ScalarConverter {
 	private:
 	public:
-        enum {CHAR, INT, FLOAT, DOUBLE};
+        // enum {CHAR, INT, FLOAT, DOUBLE};
 		
         /* OCF */
 		ScalarConverter();
@@ -19,19 +21,13 @@ class ScalarConverter {
 		ScalarConverter &operator=(const ScalarConverter &copy);
 
 		/* member fuctions */
-        static int determineType(const std::string &str);
-        static void convert2Char(std::string &str);
-        static void convert2Int(std::string &str);
-        static void convert2Float(std::string &str);
-        static void convert2Double(std::string &str);        
-        // static void merge(std::string)
+        // static int determineType(const std::string &str);
+        static void convert2Char(const std::string &str);
+        static void convert2Int(const std::string &str);
+        static void convert2Float(const std::string &str);
+        static void convert2Double(const std::string &str);
 
-        /* error exception class */
-
-        class InvalidTypeException: public std::exception {
-            public:
-                const char * what() const throw();
-        };
+		static void convertAll(const std::string &str);
 
 };
 
