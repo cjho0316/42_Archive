@@ -1,13 +1,15 @@
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <map>
 
-static int stringToInt(const std::string& str);
+int stringToInt(const std::string& str);
+double stringToDouble(const std::string& str);
 
 class BitcoinExchange {
 	public:
@@ -21,7 +23,8 @@ class BitcoinExchange {
 		}
 
 		/* member functions */
-		void parseLine(std::string line, std::map<std::string, float>);
+		void parseLine(std::string line, std::map<std::string, float> &dataMap);
+		bool parsingMapKey(std::string paraYear, std::string paraMonth, std::string paraDay);
 		int checkValidData(std::string line);
 		int checkValidKey(std::string line);
 		int checkValidValue(std::string line);
@@ -29,11 +32,3 @@ class BitcoinExchange {
 };
 
 #endif
-
-/*
-//TODO
-1. 파싱해서 파이프 로 구분자 던져주는 
-
-
-
-*/

@@ -7,7 +7,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 
 SRCS = main.cpp\
-		# BitcoinExchange.cpp\
+		BitcoinExchange.cpp\
 		
 
 OBJS = ${SRCS:.cpp=.o}
