@@ -30,7 +30,7 @@ std::map<std::string, float> csvToMap(std::string path) {
 
 int main(int ac, char **av) {
 	BitcoinExchange exchange;
-	if (ac < 2) {
+	if (ac != 2) {
 		std::cerr << "Error: could not open file" << std::endl;
 		return 0;
 	}
