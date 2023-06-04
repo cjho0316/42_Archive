@@ -22,15 +22,8 @@ int main(int argc, char* argv[]) {
         // Display the unsorted sequence
         printing("Before: ", sequenceVector);
         // Display the time taken for vector sort
-        printing("After: ", sequenceVector);
         calcTime(sequenceVector);
-    }
-    std::cout << "-----------------------------------------------" << std::endl;
-    {
-        // Display the unsorted sequence
-        printing("Before: ", sequenceDeque);
-        // Display the time taken for deque sort
-        printing("After: ", sequenceDeque);
+        printing("After: ", sequenceVector);
         calcTime(sequenceDeque);
     }
     return 0;
