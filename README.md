@@ -1,8 +1,9 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src="" alt="logo" width="1000"  height="auto" />
+  <img width="826" alt="스크린샷 2024-02-09 오후 5 37 26" src="https://github.com/cjho0316/42_Archive/assets/83046766/c34af896-c7a7-4382-a472-60d922d37f92">
 </div>
+
 
 <!-- TABLE OF CONTENTS -->
 
