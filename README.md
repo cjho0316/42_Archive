@@ -214,6 +214,23 @@
 - **RFC7230, 7231 MUST를 준수하는 웹서버를 C++로 구현하기**
 </br></br></br>
 
+# [ft_transcendence] <a name="ft_transcendence"></a>
+
+**NestJS, TypeScript, PostgreSQL 기술을 사용하여 소켓통신의 기능을 통합한 Pong 게임용 종합 웹 애플리케이션을 개발**
+<br>
+
+### Tech Stack <a name="tech-stack"></a>
+
+> Language
+&nbsp;&nbsp;<span><img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white"></span>&nbsp;
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **OAuth 사용자 인증, 채팅 시스템, 라이브 게임 스트리밍, 보안 사용자 데이터 관리**
+</br></br></br>
+
 
 
 
