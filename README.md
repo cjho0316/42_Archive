@@ -74,7 +74,7 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 
 
 # ft_printf <a name="printf"></a>
-##### Duration: 2022.08.10 ~ 2023.08.12
+##### Duration: 2022.08.10 ~ 2022.08.12
 <stdio.h> 에 있는 printf 함수 구현하기 <br>
 기본 구현 : c s p d i u x X o O % 의 형식에 대해 구현하기 <br>
 **허용함수 : malloc, free, write, va_start, va_arg, va_copy, va_end** <br>
@@ -97,7 +97,7 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 
 # minitalk <a name="minitalk"></a>
 
-##### Duration: 2022.08.12 ~ 2023.10.05
+##### Duration: 2022.08.12 ~ 2022.10.05
 UNIX signal (소켓통신)을 활용한 서버-클라이언트 메세지 보내기<br>
 SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 프로그램 만들기<br>
 보너스파트 : 유니코드 지원, 서버에서 받은 signal개수 확인하는 작업 추가<br>
@@ -124,8 +124,8 @@ SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 �
 
 # so_long <a name="so_long"></a>
 
-**mlx 라이브러르로 만들어보는 간단한 2D 게임**
-##### Duration: 2022.10.05 ~ 2023.10.10
+**mlx 라이브러리로 만들어보는 간단한 2D 게임**
+##### Duration: 2022.10.05 ~ 2022.10.10
 
 <br>
 
@@ -144,7 +144,7 @@ SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 �
 
 # push swap <a name="push_swap"></a>
 
-##### Duration: 2022.08.12 ~ 2022.10.05
+##### Duration: 2022.10.12 ~ 2022.12.25
 프로그램에 들어오는 인자를 스택에 쌓고, 빈 스택 하나를 이용하여 정렬하기<br>
 스택안에서 요소들을 옮기는 명령어가 주어지고, 명령어 최소사용으로 정렬하기<br>
 보너스파트 : checker program 만들기(정렬 여부 확인)<br>
@@ -165,7 +165,7 @@ SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 �
 </br></br></br>
 
 # minishell <a name="minishell"></a>
-##### Duration: 2022.12.12 ~ 2023.01.17
+##### Duration: 2022.12.25 ~ 2023.01.17
 bash shell 만들기 (bash manual)<br>
 몇몇 명령어는 built-in 함수로 만들고, 나머지는 execve로 실행<br>
 환경변수도 세팅해줄 수 있어야 함<br>
