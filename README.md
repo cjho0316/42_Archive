@@ -4,7 +4,6 @@
   <img width="826" alt="스크린샷 2024-02-09 오후 5 37 26" src="https://github.com/cjho0316/42_Archive/assets/83046766/c34af896-c7a7-4382-a472-60d922d37f92">
 </div>
 
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -21,10 +20,11 @@
 - [📖 webserv](#webserv)
 - [📖 ft_transcendence](#ft_transcendence)
 
-
+    
 </br></br></br>
 
-# [Libft] <a name="libft"></a>
+# Libft <a name="libft"></a> 
+
 
 **ft_libft : 다양한 C언어 내장 함수들을 직접 구현해보는 프로젝트**
 <br>
