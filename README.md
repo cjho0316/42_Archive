@@ -9,21 +9,24 @@
 # 📗 Table of Contents
 
 - [📖 Libft](#libft)
-- [📖 get_next_line](#get_next_line)
-- [📖 ft_printf](#printf)
-- [📖 minitalk](#minitalk)
-- [📖 so_long](#so_long)
-- [📖 push_swap](#push_swap)
-- [📖 minishell](#minishell)
-- [📖 cub3d](#cub3d)
-- [📖 cpp_module](#cpp_module)
-- [📖 webserv](#webserv)
-- [📖 ft_transcendence](#ft_transcendence)
+- [〰️ get_next_line](#get_next_line)
+- [🖨️ ft_printf](#printf)
+- [🖥️ born2beroot](#born2beroot)
+- [🗣️ minitalk](#minitalk)
+- [👋 so_long](#so_long)
+- [🥞 push_swap](#push_swap)
+- [🐚 minishell](#minishell)
+- [🤔 philosopher](#philosopher)
+- [🎲 cub3d](#cub3d)
+- [🎱 cpp_module](#cpp_module)
+- [🕸️ webserv](#webserv)
+- [🔝 inception](#inception)
+- [🎉 ft_transcendence](#ft_transcendence)
 
     
 </br></br></br>
 
-# Libft <a name="libft"> </a>
+# Libft <a name="libft"> 📖 </a>
 ##### Duration: 2022.07.04 ~ 2022.07.17
 
 다양한 C언어 내장 함수들을 직접 구현해보는 프로젝트, 나만의 함수 라이브러리 만들기 <br>
@@ -46,7 +49,7 @@
 </br></br></br>
 
 
-# get_next_line <a name="get_next_line"></a>
+# get_next_line <a name="get_next_line"> 〰️ </a>
 ##### Duration: 2022.07.17 ~ 2022.08.12
 
 fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들기 <br>
@@ -73,7 +76,7 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 
 
 
-# ft_printf <a name="printf"></a>
+# ft_printf <a name="printf"> 🖨️ </a>
 ##### Duration: 2022.08.10 ~ 2022.08.12
 <stdio.h> 에 있는 printf 함수 구현하기 <br>
 기본 구현 : c s p d i u x X o O % 의 형식에 대해 구현하기 <br>
@@ -93,7 +96,31 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 
 </br></br></br>
 
+# born2beroot <a name="born2beroot">  </a>
+##### Duration: 2022.08.10 ~ 2022.08.12
+VM 사용해보기 (virtual Box)<br>
+VM 운영체제 설치해보고 각종 설정 해보기<br>
 
+### Tech Stack <a name="tech-stack"></a>
+
+> Language
+&nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+- VM(virtual machine)이란?
+- debian, centOS 운영체제 특성 파악 및 vm에 CLI 버전 설치해보기 (+ 운영체제란? 리눅스란? 커널이란?)
+- LVM(Logical Volume Manager) 개념 알고 이것으로 vm 설치하기
+- 패키지 관리 시스템 사용해보고 패키기 설치해보기
+- AppAmor(debian) 설치 및 실행해보기
+- sudo가 무엇인지 알고 설치 및 사용해보기
+- debian의 사용자 및 그룹 설정하기, 비밀번호 정책 설정
+- SSH 설치 및 원격 접속 해보기(ssh, port forwarding)
+- UFW 패키지 설치 및 설정 (방화벽, 방화벽 설정 패키지)
+- CRON 사용하여 컴퓨터 시스템 상황 띄우기
+
+</br></br></br>
 
 # minitalk <a name="minitalk"></a>
 
@@ -123,9 +150,8 @@ SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 �
 
 
 # so_long <a name="so_long"></a>
-
-**mlx 라이브러리로 만들어보는 간단한 2D 게임**
 ##### Duration: 2022.10.05 ~ 2022.10.10
+mlx 라이브러리로 만들어보는 간단한 2D 게임<br>
 
 <br>
 
@@ -181,12 +207,37 @@ bash shell 만들기 (bash manual)<br>
 - 부모-자식 process
 - pipe 통신
 - tree 구조 재귀하향파싱
-- 설계의 중요성
+- 설계의 중요성...
+</br></br></br>
+
+# philosopher <a name="philosopher"></a>
+##### Duration: 2023.01.17 ~ 2023.02.12
+다익스트라의 식사하는 철학자 문제<br>
+철학자에게 주어진 fork가 공유자원이기에, 공유자원 접근에 대해 data race가 발생하지 않도록 해야 함<br>
+철학자를 멀티 쓰레드로 구현하고, 공유자원을 mutex 제어하기<br>
+철학자를 멀티 프로세스로 구현하고, 공유자원을 semaphore로 제어하기(보너스)<br>
+어떤 종류의 data race도 발생하지 않아야 함<br>
+
+### Tech Stack <a name="tech-stack"></a>
+
+> Language
+&nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+- 모든 data race 에 대해 제어해주기
+- 철학자가 죽었는지는 자기 자신이 판단할 수 없음. 모니터 쓰레드가 철학자의 죽음 유무 확인하기
+- thread leak 체크하기
+- 한 쓰레드는 공유영역을 읽기만하고, 한 쓰레드는 공유영역에 읽고/쓰기를 하는 것도 data race이며 제어해줘야함.
+- 철학자는 스스로 죽은지 판단할 수 없으며, 모니터 쓰레드가 철학자의 죽음을 판단해야 함
 </br></br></br>
 
 # cub3d <a name="cub3d"></a>
+##### Duration: 2023.01.25 ~ 2023.03.31
+2D의 맵파일을 읽고 파싱하여 3D 게임 구현하기
+mlx graphic library를 사용하여 raycasting 하기
 
-**레이캐스팅을 활용한 간단한 게임 만들기**
 <br>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -197,16 +248,29 @@ bash shell 만들기 (bash manual)<br>
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-- **레이캐스팅 기술을 활용하여 3D 게임을 C언어로 만들기**
+- 맵 파싱
+- 벽 충돌 감지
+- mouse, key 입력 받아서 처리하기
+- ray casting
 </br></br></br>
 
-
-
-
 # cpp_module(s) <a name="cpp_module"></a>
+##### Duration: 2023.04.14 ~ 2023.06.07
 
 **C++을 통한 객체지향 프로그래밍**
+
+|Module Number|Key Word|
+|------|--------|
+|CPP Module 00|C++ Style, Class, Method, I/O, Static, Const, Basic ...|
+|CPP Module 01|Memory Allocation, Pointer, Reference, Switch|
+|CPP Module 02|Orthodox Canonical Form, Operator Overloading, Fixed point|
+|CPP Module 03|Inheritance, Overide, Diamond Inheritance|
+|CPP Module 04|Polymorphism, Abstract Class, Interface|
+|CPP Module 05|Exception, try-catch, Repetition|
+|CPP Module 06|C++ cast(static_, dynamic_, reinterpret_)|
+|CPP Module 07|C++ Template, .tpp|
+|CPP Module 08|Tmplated containers, iterator, algorithm|
+|CPP Module 09|STL(containers, iterator)|
 <br>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -222,12 +286,15 @@ bash shell 만들기 (bash manual)<br>
 </br></br></br>
 
 
-
-
 # webserv <a name="webserv"></a>
-
+##### Duration: 2023.04.14 ~ 2023.06.07
 **C++을 통해 구현하는 웹서버**
-<br>
+http web server 구현 (**like NGINX**)<br>
+socket programming(**w/kqueue**)<br>
+I/O multi plexing<br>
+event-driven I/O (Non-block)<br>
+cookie & session<br>
+CGI(Common Gateway Interface)<br>
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -241,8 +308,8 @@ bash shell 만들기 (bash manual)<br>
 - **RFC7230, 7231 MUST를 준수하는 웹서버를 C++로 구현하기**
 </br></br></br>
 
-# transcendence <a name="ft_transcendence"></a>
-
+# ft_transcendence <a name="ft_transcendence"></a>
+##### Duration: 2023.10.30 ~ 2023.12.30
 **NestJS, TypeScript, PostgreSQL 기술을 사용하여 소켓통신의 기능을 통합한 Pong 게임용 종합 웹 애플리케이션을 개발**
 <br>
 
@@ -254,7 +321,6 @@ bash shell 만들기 (bash manual)<br>
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
 - **OAuth 사용자 인증, 채팅 시스템, 라이브 게임 스트리밍, 보안 사용자 데이터 관리**
 </br></br></br>
 
