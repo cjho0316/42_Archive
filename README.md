@@ -96,7 +96,7 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 
 </br></br></br>
 
-# born2beroot <a name="born2beroot">  </a>
+# born2beroot <a name="born2beroot"> 🖥️ </a>
 ##### Duration: 2022.08.10 ~ 2022.08.12
 VM 사용해보기 (virtual Box)<br>
 VM 운영체제 설치해보고 각종 설정 해보기<br>
@@ -122,7 +122,7 @@ VM 운영체제 설치해보고 각종 설정 해보기<br>
 
 </br></br></br>
 
-# minitalk <a name="minitalk"></a>
+# minitalk <a name="minitalk"> 🗣️ </a>
 
 ##### Duration: 2022.08.12 ~ 2022.10.05
 UNIX signal (소켓통신)을 활용한 서버-클라이언트 메세지 보내기<br>
@@ -149,7 +149,7 @@ SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 �
 
 
 
-# so_long <a name="so_long"></a>
+# so_long <a name="so_long"> 👋 </a>
 ##### Duration: 2022.10.05 ~ 2022.10.10
 mlx 라이브러리로 만들어보는 간단한 2D 게임<br>
 
@@ -168,7 +168,7 @@ mlx 라이브러리로 만들어보는 간단한 2D 게임<br>
 </br></br></br>
 
 
-# push swap <a name="push_swap"></a>
+# push swap <a name="push_swap"> 🥞 </a>
 
 ##### Duration: 2022.10.12 ~ 2022.12.25
 프로그램에 들어오는 인자를 스택에 쌓고, 빈 스택 하나를 이용하여 정렬하기<br>
@@ -190,7 +190,7 @@ mlx 라이브러리로 만들어보는 간단한 2D 게임<br>
 - 파이프라인 사용시 앞 프로그램의 fd 1이 뒷 프로그램의 fd 0으로 이어짐
 </br></br></br>
 
-# minishell <a name="minishell"></a>
+# minishell <a name="minishell"> 🐚 </a>
 ##### Duration: 2022.12.25 ~ 2023.01.17
 bash shell 만들기 (bash manual)<br>
 몇몇 명령어는 built-in 함수로 만들고, 나머지는 execve로 실행<br>
@@ -210,7 +210,7 @@ bash shell 만들기 (bash manual)<br>
 - 설계의 중요성...
 </br></br></br>
 
-# philosopher <a name="philosopher"></a>
+# philosopher <a name="philosopher"> 🤔 </a>
 ##### Duration: 2023.01.17 ~ 2023.02.12
 다익스트라의 식사하는 철학자 문제<br>
 철학자에게 주어진 fork가 공유자원이기에, 공유자원 접근에 대해 data race가 발생하지 않도록 해야 함<br>
@@ -233,7 +233,7 @@ bash shell 만들기 (bash manual)<br>
 - 철학자는 스스로 죽은지 판단할 수 없으며, 모니터 쓰레드가 철학자의 죽음을 판단해야 함
 </br></br></br>
 
-# cub3d <a name="cub3d"></a>
+# cub3d <a name="cub3d"> 🎲 </a>
 ##### Duration: 2023.01.25 ~ 2023.03.31
 2D의 맵파일을 읽고 파싱하여 3D 게임 구현하기
 mlx graphic library를 사용하여 raycasting 하기
@@ -254,7 +254,7 @@ mlx graphic library를 사용하여 raycasting 하기
 - ray casting
 </br></br></br>
 
-# cpp_module(s) <a name="cpp_module"></a>
+# cpp_module(s) <a name="cpp_module"> 🎱 </a>
 ##### Duration: 2023.04.14 ~ 2023.06.07
 
 **C++을 통한 객체지향 프로그래밍**
@@ -286,7 +286,7 @@ mlx graphic library를 사용하여 raycasting 하기
 </br></br></br>
 
 
-# webserv <a name="webserv"></a>
+# webserv <a name="webserv"> 🕸️ </a>
 ##### Duration: 2023.04.14 ~ 2023.06.07
 **C++을 통해 구현하는 웹서버**
 http web server 구현 (**like NGINX**)<br>
@@ -307,6 +307,23 @@ CGI(Common Gateway Interface)<br>
 
 - **RFC7230, 7231 MUST를 준수하는 웹서버를 C++로 구현하기**
 </br></br></br>
+
+# inception <a name="inception"> 🔝 </a>
+##### Duration: 2023.06.07 ~ 2023.11.20
+
+
+### Tech Stack <a name="tech-stack"></a>
+
+> Language
+&nbsp;&nbsp;<span><img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"></span>&nbsp;
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **Docker 위에서 MySQL, Nginx, Wordpress를 상용이미지가 아닌 커스텀 이미지로 올리기**
+</br></br></br>
+
 
 # ft_transcendence <a name="ft_transcendence"></a>
 ##### Duration: 2023.10.30 ~ 2023.12.30
