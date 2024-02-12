@@ -1,0 +1,64 @@
+version: '3'
+
+networks:
+  intra:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/jang-cho/data/mysql
+      o: bind
+  wpdata:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/jang-cho/data/wordpress
+      o: bind
+
+services:
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - intra
+    tty: true
+    env_file:
+      - .env
+    expose:
+      - '3306'
+
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    restart: always
+    volumes:
+      - wpdata:/var/www/html
+    networks:
+      - intra
+    tty: true
+    env_file:
+      - .env
+    expose:
+      - '9000'
+
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    restart: always
+    volumes:
+      - wpdata:/var/www/html
+    networks:
+      - intra
+    tty: true
+    env_file:
+      - .env
+    ports:
+      - '443:443'
+
+
