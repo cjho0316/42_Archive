@@ -37,6 +37,8 @@
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[Libft link](https://github.com/cjho0316/42_Archive/tree/main/libft)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -62,6 +64,8 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[get next line](https://github.com/cjho0316/42_Archive/tree/main/gnl)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -86,6 +90,8 @@ fd를 읽으면서 개행(\n) 단위로 char *로 리턴해주는 함수 만들�
 
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
+
+[ft_printf link](https://github.com/cjho0316/42_Archive/tree/main/printf)
 
 <!-- Features -->
 
@@ -135,6 +141,8 @@ SIGUSR1, SIGUSR2 의 두가지 신호를 통해서 메세지 보내고 받는 �
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[minitalk link](https://github.com/cjho0316/42_Archive/tree/main/minitalk)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -160,6 +168,8 @@ mlx 라이브러리로 만들어보는 간단한 2D 게임<br>
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[so_long link](https://github.com/cjho0316/42_Archive/tree/main/so_long)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -181,6 +191,8 @@ mlx 라이브러리로 만들어보는 간단한 2D 게임<br>
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[push_swap link](https://github.com/cjho0316/42_Archive/tree/main/push_swap)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -200,6 +212,8 @@ bash shell 만들기 (bash manual)<br>
 
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
+
+[minishell link](https://github.com/cjho0316/42_Archive/tree/main/minishell)
 
 <!-- Features -->
 
@@ -223,6 +237,8 @@ bash shell 만들기 (bash manual)<br>
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[philosopher link](https://github.com/cjho0316/42_Archive/tree/main/Philosopher)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -245,6 +261,8 @@ mlx graphic library를 사용하여 raycasting 하기
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/C-A8B9CC?style=flat&logo=C&logoColor=white"/></span>&nbsp;
 
+[cub3D link](https://github.com/cjho0316/42_Archive/tree/main/cub3D)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -262,15 +280,15 @@ mlx graphic library를 사용하여 raycasting 하기
 |Module Number|Key Word|
 |------|--------|
 |[CPP Module 00](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP00)|C++ Style, Class, Method, I/O, Static, Const, Basic ...|
-|CPP Module 01|Memory Allocation, Pointer, Reference, Switch|
-|CPP Module 02|Orthodox Canonical Form, Operator Overloading, Fixed point|
-|CPP Module 03|Inheritance, Overide, Diamond Inheritance|
-|CPP Module 04|Polymorphism, Abstract Class, Interface|
-|CPP Module 05|Exception, try-catch, Repetition|
-|CPP Module 06|C++ cast(static_, dynamic_, reinterpret_)|
-|CPP Module 07|C++ Template, .tpp|
-|CPP Module 08|Tmplated containers, iterator, algorithm|
-|CPP Module 09|STL(containers, iterator)|
+|[CPP Module 01](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP01)|Memory Allocation, Pointer, Reference, Switch|
+|[CPP Module 02](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP02)|Orthodox Canonical Form, Operator Overloading, Fixed point|
+|[CPP Module 03](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP03)|Inheritance, Overide, Diamond Inheritance|
+|[CPP Module 04](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP04)|Polymorphism, Abstract Class, Interface|
+|[CPP Module 05](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP05)|Exception, try-catch, Repetition|
+|[CPP Module 06](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP06)|C++ cast(static_, dynamic_, reinterpret_)|
+|[CPP Module 07](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP07)|C++ Template, .tpp|
+|[CPP Module 08](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP08)|Tmplated containers, iterator, algorithm|
+|[CPP Module 09](https://github.com/cjho0316/42_Archive/tree/main/CPP/CPP09)|STL(containers, iterator)|
 <br>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -301,6 +319,8 @@ CGI(Common Gateway Interface)<br>
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"></span>&nbsp;
 
+[MyLittleWebServer link](https://github.com/MyLittleWebServer/webserv)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -317,6 +337,8 @@ CGI(Common Gateway Interface)<br>
 > Language
 &nbsp;&nbsp;<span><img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"></span>&nbsp;
 
+[inception link](https://github.com/cjho0316/42_Archive/tree/main/inception)
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -332,8 +354,16 @@ CGI(Common Gateway Interface)<br>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Language
-&nbsp;&nbsp;<span><img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white"></span>&nbsp;
+> Stacks
+&nbsp;&nbsp;<span>
+> <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" />
+    <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101" />
+    <img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+    <img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white" /></span>&nbsp;
+
+[tscenping link](https://github.com/tscenping)
 
 <!-- Features -->
 
