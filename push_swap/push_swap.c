@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:44:38 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/30 16:03:33 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:28:12 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	main(int ac, char **av)
 	chk_avvalsorted(deq1);
 	indexing_all(deq1);
 	sorting_deque(deq1, deq2);
-	free_all(deq1, deq2);
+	free_all(deq1);
 	return (0);
 }

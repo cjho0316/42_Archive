@@ -6,7 +6,7 @@
 /*   By: jang-cho <jang-cho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:11:45 by jang-cho          #+#    #+#             */
-/*   Updated: 2022/12/30 15:49:04 by jang-cho         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:24:58 by jang-cho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_deque{
 }	t_deque;
 
 //libft (library1, 2)
-void		free_all(t_deque *q1, t_deque *q2);
+void		free_all(t_deque *q1);
 void		ft_putstr_fd(char *s, int fd);
 int			put_idx(const char *str);
 void		ft_strlcpy1(char *dst, const char *src, size_t size);
